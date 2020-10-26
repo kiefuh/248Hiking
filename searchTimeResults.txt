@@ -1,0 +1,113 @@
+Search									Time
+___________________________________________________
+difficultySearchHashMap 1000 trails: 	1909
+elevationSearchTreeMap 1000 trails: 	1032
+distanceSearchTreeMap 1000 trails: 	647
+typeSearchHashMap 1000 trails: 		932
+nameSearchLinkedList 1000 trails: 		24545
+difficultySearchTreeSet 1000 trails: 	8537
+elevationSearchTreeSet 1000 trails: 	6412
+distanceSearchTreeSet 1000 trails: 	5650
+typeSearchTreeSet 1000 trails: 		5661
+nameSearchTreeSet 1000 trails: 		5394
+___________________________________________________
+difficultySearchHashMap 1500 trails: 	2020
+elevationSearchTreeMap 1500 trails: 	1036
+distanceSearchTreeMap 1500 trails: 	649
+typeSearchHashMap 1500 trails: 		956
+nameSearchLinkedList 1500 trails: 		26476
+difficultySearchTreeSet 1500 trails: 	8808
+elevationSearchTreeSet 1500 trails: 	6330
+distanceSearchTreeSet 1500 trails: 	5623
+typeSearchTreeSet 1500 trails: 		5259
+nameSearchTreeSet 1500 trails: 		5042
+___________________________________________________
+difficultySearchHashMap 2000 trails: 	2253
+elevationSearchTreeMap 2000 trails: 	1081
+distanceSearchTreeMap 2000 trails: 	657
+typeSearchHashMap 2000 trails: 		963
+nameSearchLinkedList 2000 trails: 		28914
+difficultySearchTreeSet 2000 trails: 	9017
+elevationSearchTreeSet 2000 trails: 	6298
+distanceSearchTreeSet 2000 trails: 	5720
+typeSearchTreeSet 2000 trails: 		5216
+nameSearchTreeSet 2000 trails: 		5011
+___________________________________________________
+difficultySearchHashMap 2500 trails: 	2480
+elevationSearchTreeMap 2500 trails: 	1128
+distanceSearchTreeMap 2500 trails: 	685
+typeSearchHashMap 2500 trails: 		1033
+nameSearchLinkedList 2500 trails: 		29990
+difficultySearchTreeSet 2500 trails: 	9141
+elevationSearchTreeSet 2500 trails: 	6310
+distanceSearchTreeSet 2500 trails: 	5610
+typeSearchTreeSet 2500 trails: 		5248
+nameSearchTreeSet 2500 trails: 		5016
+___________________________________________________
+difficultySearchHashMap 3000 trails: 	2644
+elevationSearchTreeMap 3000 trails: 	1140
+distanceSearchTreeMap 3000 trails: 	696
+typeSearchHashMap 3000 trails: 		1016
+nameSearchLinkedList 3000 trails: 		31240
+difficultySearchTreeSet 3000 trails: 	9229
+elevationSearchTreeSet 3000 trails: 	6439
+distanceSearchTreeSet 3000 trails: 	5713
+typeSearchTreeSet 3000 trails: 		5218
+nameSearchTreeSet 3000 trails: 		5038
+___________________________________________________
+difficultySearchHashMap 3500 trails: 	2912
+elevationSearchTreeMap 3500 trails: 	1086
+distanceSearchTreeMap 3500 trails: 	724
+typeSearchHashMap 3500 trails: 		1042
+nameSearchLinkedList 3500 trails: 		31888
+difficultySearchTreeSet 3500 trails: 	9294
+elevationSearchTreeSet 3500 trails: 	6285
+distanceSearchTreeSet 3500 trails: 	5627
+typeSearchTreeSet 3500 trails: 		5206
+nameSearchTreeSet 3500 trails: 		5152
+___________________________________________________
+difficultySearchHashMap 4000 trails: 	3010
+elevationSearchTreeMap 4000 trails: 	1113
+distanceSearchTreeMap 4000 trails: 	766
+typeSearchHashMap 4000 trails: 		982
+nameSearchLinkedList 4000 trails: 		32134
+difficultySearchTreeSet 4000 trails: 	9428
+elevationSearchTreeSet 4000 trails: 	6336
+distanceSearchTreeSet 4000 trails: 	5599
+typeSearchTreeSet 4000 trails: 		5230
+nameSearchTreeSet 4000 trails: 		5004
+___________________________________________________
+difficultySearchHashMap 4500 trails: 	3126
+elevationSearchTreeMap 4500 trails: 	1122
+distanceSearchTreeMap 4500 trails: 	762
+typeSearchHashMap 4500 trails: 		987
+nameSearchLinkedList 4500 trails: 		32063
+difficultySearchTreeSet 4500 trails: 	9432
+elevationSearchTreeSet 4500 trails: 	6413
+distanceSearchTreeSet 4500 trails: 	5588
+typeSearchTreeSet 4500 trails: 		5258
+nameSearchTreeSet 4500 trails: 		5062
+___________________________________________________
+difficultySearchHashMap 5000 trails: 	3270
+elevationSearchTreeMap 5000 trails: 	1118
+distanceSearchTreeMap 5000 trails: 	776
+typeSearchHashMap 5000 trails: 		993
+nameSearchLinkedList 5000 trails: 		32314
+difficultySearchTreeSet 5000 trails: 	9434
+elevationSearchTreeSet 5000 trails: 	6342
+distanceSearchTreeSet 5000 trails: 	5614
+typeSearchTreeSet 5000 trails: 		5189
+nameSearchTreeSet 5000 trails: 		5028
+___________________________________________________
+difficultySearchHashMap 5500 trails: 	3347
+elevationSearchTreeMap 5500 trails: 	1154
+distanceSearchTreeMap 5500 trails: 	779
+typeSearchHashMap 5500 trails: 		1020
+nameSearchLinkedList 5500 trails: 		32395
+difficultySearchTreeSet 5500 trails: 	9543
+elevationSearchTreeSet 5500 trails: 	6310
+distanceSearchTreeSet 5500 trails: 	5618
+typeSearchTreeSet 5500 trails: 		5183
+nameSearchTreeSet 5500 trails: 		5081
+___________________________________________________
+

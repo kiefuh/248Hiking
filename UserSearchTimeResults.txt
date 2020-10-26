@@ -1,0 +1,13 @@
+Search									Time
+___________________________________________________
+Search Time 1000 trails: 	10834
+Search Time 1500 trails: 	10935
+Search Time 2000 trails: 	11094
+Search Time 2500 trails: 	11182
+Search Time 3000 trails: 	11348
+Search Time 3500 trails: 	11422
+Search Time 4000 trails: 	11620
+Search Time 4500 trails: 	11712
+Search Time 5000 trails: 	11744
+Search Time 5500 trails: 	11658
+

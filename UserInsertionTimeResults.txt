@@ -1,0 +1,13 @@
+Insertion									Time
+___________________________________________________
+Insertion Time 1000 trails: 	68901297
+Insertion Time 1500 trails: 	102555276
+Insertion Time 2000 trails: 	136915691
+Insertion Time 2500 trails: 	171313199
+Insertion Time 3000 trails: 	205581461
+Insertion Time 3500 trails: 	239918370
+Insertion Time 4000 trails: 	274339433
+Insertion Time 4500 trails: 	308563811
+Insertion Time 5000 trails: 	343014294
+Insertion Time 5500 trails: 	377163306
+

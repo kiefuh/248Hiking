@@ -1,0 +1,11 @@
+Removal Time 1000 trails: 	8586
+Removal Time 1500 trails: 	8748
+Removal Time 2000 trails: 	8883
+Removal Time 2500 trails: 	9065
+Removal Time 3000 trails: 	9192
+Removal Time 3500 trails: 	9357
+Removal Time 4000 trails: 	9323
+Removal Time 4500 trails: 	9693
+Removal Time 5000 trails: 	9534
+Removal Time 5500 trails: 	9538
+

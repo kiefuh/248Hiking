@@ -1,0 +1,113 @@
+Delete									Time
+___________________________________________________
+difficultyDeleteHashMap 1000 trails: 	220960270
+elevationDeleteTreeMap 1000 trails: 	4882718
+distanceDeleteTreeMap 1000 trails: 	7753019
+typeDeleteHashMap 1000 trails: 		221195437
+nameDeleteLinkedList 1000 trails: 		804728
+difficultyDeleteTreeSet 1000 trails: 	837367
+elevationDeleteTreeSet 1000 trails: 	704832
+distanceDeleteTreeSet 1000 trails: 	700162
+typeDeleteTreeSet 1000 trails: 		839460
+nameDeleteTreeSet 1000 trails: 		5811243
+___________________________________________________
+difficultyDeleteHashMap 1500 trails: 	493521838
+elevationDeleteTreeMap 1500 trails: 	10685109
+distanceDeleteTreeMap 1500 trails: 	17005016
+typeDeleteHashMap 1500 trails: 		495314824
+nameDeleteLinkedList 1500 trails: 		1207197
+difficultyDeleteTreeSet 1500 trails: 	1252900
+elevationDeleteTreeSet 1500 trails: 	1059480
+distanceDeleteTreeSet 1500 trails: 	1054572
+typeDeleteTreeSet 1500 trails: 		1261018
+nameDeleteTreeSet 1500 trails: 		8675400
+___________________________________________________
+difficultyDeleteHashMap 2000 trails: 	867687942
+elevationDeleteTreeMap 2000 trails: 	19431071
+distanceDeleteTreeMap 2000 trails: 	30429645
+typeDeleteHashMap 2000 trails: 		869639540
+nameDeleteLinkedList 2000 trails: 		1607169
+difficultyDeleteTreeSet 2000 trails: 	1661639
+elevationDeleteTreeSet 2000 trails: 	1414420
+distanceDeleteTreeSet 2000 trails: 	1399392
+typeDeleteTreeSet 2000 trails: 		1677940
+nameDeleteTreeSet 2000 trails: 		11572460
+___________________________________________________
+difficultyDeleteHashMap 2500 trails: 	1344130752
+elevationDeleteTreeMap 2500 trails: 	29742807
+distanceDeleteTreeMap 2500 trails: 	47448346
+typeDeleteHashMap 2500 trails: 		1346090268
+nameDeleteLinkedList 2500 trails: 		2013095
+difficultyDeleteTreeSet 2500 trails: 	2079086
+elevationDeleteTreeSet 2500 trails: 	1759038
+distanceDeleteTreeSet 2500 trails: 	1752579
+typeDeleteTreeSet 2500 trails: 		2093274
+nameDeleteTreeSet 2500 trails: 		14348182
+___________________________________________________
+difficultyDeleteHashMap 3000 trails: 	1928602655
+elevationDeleteTreeMap 3000 trails: 	43000566
+distanceDeleteTreeMap 3000 trails: 	67293327
+typeDeleteHashMap 3000 trails: 		1934518295
+nameDeleteLinkedList 3000 trails: 		2431832
+difficultyDeleteTreeSet 3000 trails: 	2504554
+elevationDeleteTreeSet 3000 trails: 	2126280
+distanceDeleteTreeSet 3000 trails: 	2112047
+typeDeleteTreeSet 3000 trails: 		2518803
+nameDeleteTreeSet 3000 trails: 		17248059
+___________________________________________________
+difficultyDeleteHashMap 3500 trails: 	2626155711
+elevationDeleteTreeMap 3500 trails: 	58997047
+distanceDeleteTreeMap 3500 trails: 	90601838
+typeDeleteHashMap 3500 trails: 		2627359302
+nameDeleteLinkedList 3500 trails: 		2855623
+difficultyDeleteTreeSet 3500 trails: 	2938153
+elevationDeleteTreeSet 3500 trails: 	2482674
+distanceDeleteTreeSet 3500 trails: 	2470580
+typeDeleteTreeSet 3500 trails: 		2944721
+nameDeleteTreeSet 3500 trails: 		20178772
+___________________________________________________
+difficultyDeleteHashMap 4000 trails: 	3422120787
+elevationDeleteTreeMap 4000 trails: 	75780011
+distanceDeleteTreeMap 4000 trails: 	119226363
+typeDeleteHashMap 4000 trails: 		3429591181
+nameDeleteLinkedList 4000 trails: 		3264827
+difficultyDeleteTreeSet 4000 trails: 	3342838
+elevationDeleteTreeSet 4000 trails: 	2838676
+distanceDeleteTreeSet 4000 trails: 	2828666
+typeDeleteTreeSet 4000 trails: 		3368032
+nameDeleteTreeSet 4000 trails: 		23018585
+___________________________________________________
+difficultyDeleteHashMap 4500 trails: 	4332106901
+elevationDeleteTreeMap 4500 trails: 	97349726
+distanceDeleteTreeMap 4500 trails: 	151661674
+typeDeleteHashMap 4500 trails: 		4334873726
+nameDeleteLinkedList 4500 trails: 		3695379
+difficultyDeleteTreeSet 4500 trails: 	3780747
+elevationDeleteTreeSet 4500 trails: 	3209978
+distanceDeleteTreeSet 4500 trails: 	3204293
+typeDeleteTreeSet 4500 trails: 		3804375
+nameDeleteTreeSet 4500 trails: 		25974068
+___________________________________________________
+difficultyDeleteHashMap 5000 trails: 	5332395776
+elevationDeleteTreeMap 5000 trails: 	119975298
+distanceDeleteTreeMap 5000 trails: 	184368987
+typeDeleteHashMap 5000 trails: 		5341907741
+nameDeleteLinkedList 5000 trails: 		4114487
+difficultyDeleteTreeSet 5000 trails: 	4184021
+elevationDeleteTreeSet 5000 trails: 	3569404
+distanceDeleteTreeSet 5000 trails: 	3556701
+typeDeleteTreeSet 5000 trails: 		4217408
+nameDeleteTreeSet 5000 trails: 		28797388
+___________________________________________________
+difficultyDeleteHashMap 5500 trails: 	6532511571
+elevationDeleteTreeMap 5500 trails: 	145669864
+distanceDeleteTreeMap 5500 trails: 	228301239
+typeDeleteHashMap 5500 trails: 		6538594347
+nameDeleteLinkedList 5500 trails: 		4578952
+difficultyDeleteTreeSet 5500 trails: 	4679560
+elevationDeleteTreeSet 5500 trails: 	3995219
+distanceDeleteTreeSet 5500 trails: 	3987817
+typeDeleteTreeSet 5500 trails: 		4757303
+nameDeleteTreeSet 5500 trails: 		32386367
+___________________________________________________
+

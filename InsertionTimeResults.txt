@@ -1,0 +1,33 @@
+Insert									Time
+___________________________________________________
+insertionTreeMapStore 1000 trails: 	16911155
+insertionTreeSetStore 1000 trails: 	16209000
+___________________________________________________
+insertionTreeMapStore 1500 trails: 	24895127
+insertionTreeSetStore 1500 trails: 	24347387
+___________________________________________________
+insertionTreeMapStore 2000 trails: 	32883531
+insertionTreeSetStore 2000 trails: 	32754887
+___________________________________________________
+insertionTreeMapStore 2500 trails: 	40933784
+insertionTreeSetStore 2500 trails: 	41166069
+___________________________________________________
+insertionTreeMapStore 3000 trails: 	48971660
+insertionTreeSetStore 3000 trails: 	49627693
+___________________________________________________
+insertionTreeMapStore 3500 trails: 	57024183
+insertionTreeSetStore 3500 trails: 	58126640
+___________________________________________________
+insertionTreeMapStore 4000 trails: 	65064404
+insertionTreeSetStore 4000 trails: 	66688302
+___________________________________________________
+insertionTreeMapStore 4500 trails: 	73067992
+insertionTreeSetStore 4500 trails: 	75299462
+___________________________________________________
+insertionTreeMapStore 5000 trails: 	81139803
+insertionTreeSetStore 5000 trails: 	83957726
+___________________________________________________
+insertionTreeMapStore 5500 trails: 	89158522
+insertionTreeSetStore 5500 trails: 	92676514
+___________________________________________________
+
