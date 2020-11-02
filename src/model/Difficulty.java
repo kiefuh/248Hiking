@@ -1,4 +1,4 @@
-package model;
+	package model;
 
 public enum Difficulty {
 	EASY("EASY"), MODERATE("MODERATE"),HARD("HARD");
