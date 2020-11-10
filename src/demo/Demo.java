@@ -18,8 +18,7 @@ public class Demo {
 		intersectGraph.addEdge("1", "2");
 		intersectGraph.addEdge("0", "3");
 		intersectGraph.addEdge("3", "2");
-		LinkedList a=IntersectGraphUtil.depthFirstTraversal(intersectGraph, "3");
-		System.out.print("Done");
+		
 		}
 
 }
