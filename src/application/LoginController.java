@@ -55,5 +55,7 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Scene scene= registerButton.getScene();
+		scene.setRoot(root);
 	}
 }

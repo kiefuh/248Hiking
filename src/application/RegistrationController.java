@@ -18,7 +18,7 @@ public class RegistrationController {
 	@FXML
 	private TextField passwordRegistrationField;
 	@FXML
-	private Button createUserButton;
+	private Button userCreateButton;
 	
 	public RegistrationController() {
 		
@@ -37,7 +37,7 @@ public class RegistrationController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Scene scene= createUserButton.getScene();
+		Scene scene= userCreateButton.getScene();
 		scene.setRoot(root);
 	}
 }

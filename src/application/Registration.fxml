@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegistrationController">
    <children>
-      <Button id="userCreateButton" fx:id="userCreateButton" layoutX="304.0" layoutY="311.0" mnemonicParsing="false" text="Register" />
+      <Button id="userCreateButton" fx:id="userCreateButton" layoutX="304.0" layoutY="311.0" mnemonicParsing="false" onAction="#createUserButtonClick" text="Register" />
       <TextField id="userRegistrationField" fx:id="userRegistrationField" layoutX="255.0" layoutY="181.0" promptText="Username" />
       <TextField id="passwordRegistrationField" fx:id="passwordRegistrationField" layoutX="255.0" layoutY="259.0" promptText="Password" />
    </children>
