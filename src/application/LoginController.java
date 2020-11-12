@@ -45,4 +45,15 @@ public class LoginController {
 		}
 		
 	}
+	
+	@FXML
+	private void registerButtonClick(ActionEvent event) {
+		Parent root=null;
+		try {
+			root=FXMLLoader.load(getClass().getResource("Registration.fxml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
