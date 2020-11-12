@@ -9,15 +9,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import model.UserProfile;
 public class LoginController {
 	@FXML
 	private Button loginButton;
 	@FXML
 	private Button registerButton;
-	
+	@FXML
+	private TextField usernameField;
+	@FXML
+	private TextField passwordField;
 	public LoginController() {
 		
 	}
+	
 	@FXML
 	private void loginButtonClick(ActionEvent event) {
 		Parent root=null;
@@ -27,7 +33,16 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Scene scene=loginButton.getScene();
-		scene.setRoot(root);
+		String username= usernameField.getText();
+		String password= passwordField.getText();
+		UserProfile check=App.userStore.searchBag(username);
+		if(check!=null&&check.getPassword().equals(password)) {
+			Scene scene=loginButton.getScene();
+			scene.setRoot(root);	
+		}
+		else {
+			usernameField.setText("Unsuccesful login" );
+		}
+		
 	}
 }
