@@ -28,6 +28,11 @@ public class RegistrationController {
 	private void createUserButtonClick(ActionEvent event) {
 		String userName=userRegistrationField.getText();
 		String password=passwordRegistrationField.getText();
+		UserProfile check=App.userStore.searchBag(userName);
+		if(check!=null) {
+			userRegistrationField.setText("This is already a user");
+		}
+		else {
 		UserProfile up= new UserProfile(userName,password,null,null);
 		App.userStore.addUser(up);
 		Parent root=null;
@@ -39,5 +44,6 @@ public class RegistrationController {
 		}
 		Scene scene= userCreateButton.getScene();
 		scene.setRoot(root);
+		}
 	}
 }

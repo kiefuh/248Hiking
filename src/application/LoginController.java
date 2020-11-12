@@ -42,6 +42,7 @@ public class LoginController {
 		}
 		else {
 			usernameField.setText("Unsuccesful login" );
+			passwordField.clear();
 		}
 		
 	}
