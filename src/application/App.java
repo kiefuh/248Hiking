@@ -12,7 +12,7 @@ public class App extends Application {
 		launch(args);
 
 	}
-
+	Stage primaryStage= new Stage();
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
