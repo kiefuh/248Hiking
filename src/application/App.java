@@ -23,7 +23,7 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		File proPicFile= new File("catProfile.png");
+		File proPicFile= new File("images/catProfile.png");
 		BufferedImage proPicImage=ImageIO.read(proPicFile);
 		UserProfile test = new UserProfile("Kiefuh","11787",proPicImage,null);
 		userStore.addUser(test);

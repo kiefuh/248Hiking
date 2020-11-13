@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.TextFlow;
 import model.UserProfile;
+import util.UserHolder;
 public class LoginController {
 	@FXML
 	private Button loginButton;
@@ -25,10 +26,6 @@ public class LoginController {
 	private TextField usernameField;
 	@FXML
 	private TextField passwordField;
-	@FXML
-	private Pane profilePicture;
-	@FXML
-	private TextFlow userInfo;
 	public LoginController() {
 		
 	}
@@ -47,9 +44,8 @@ public class LoginController {
 		UserProfile check=App.userStore.searchBag(username);
 		if(check!=null&&check.getPassword().equals(password)) {
 			Scene scene=loginButton.getScene();
-			scene.setRoot(root);	
-			Image image=SwingFXUtils.toFXImage(check.getProfilePicture(),null);
-			profilePicture.getChildren().add(new ImageView(image));
+			scene.setRoot(root);
+			UserHolder.setUser(check);
 		}
 		else {
 			usernameField.setText("Unsuccesful login" );
