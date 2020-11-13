@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.TextFlow;
 import model.UserProfile;
 public class LoginController {
 	@FXML
@@ -20,6 +25,10 @@ public class LoginController {
 	private TextField usernameField;
 	@FXML
 	private TextField passwordField;
+	@FXML
+	private Pane profilePicture;
+	@FXML
+	private TextFlow userInfo;
 	public LoginController() {
 		
 	}
@@ -39,6 +48,8 @@ public class LoginController {
 		if(check!=null&&check.getPassword().equals(password)) {
 			Scene scene=loginButton.getScene();
 			scene.setRoot(root);	
+			Image image=SwingFXUtils.toFXImage(check.getProfilePicture(),null);
+			profilePicture.getChildren().add(new ImageView(image));
 		}
 		else {
 			usernameField.setText("Unsuccesful login" );
