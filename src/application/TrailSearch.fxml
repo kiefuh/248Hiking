@@ -11,7 +11,7 @@
    <children>
       <AnchorPane prefHeight="109.0" prefWidth="876.0">
          <children>
-            <TextField id="searchField" fx:id="searchField" layoutX="207.0" layoutY="30.0" prefHeight="25.0" prefWidth="202.0" />
+            <TextField id="searchField" fx:id="searchField" layoutX="215.0" layoutY="30.0" prefHeight="25.0" prefWidth="202.0" />
             <Label layoutX="161.0" layoutY="34.0" prefHeight="17.0" prefWidth="77.0" text="Search" />
             <ComboBox id="searchTypeComboBox" fx:id="searchTypeComboBox" layoutX="438.0" layoutY="30.0" prefWidth="150.0" />
          </children>
