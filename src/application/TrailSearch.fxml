@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="109.0" prefWidth="876.0">
+         <children>
+            <TextField id="searchField" fx:id="searchField" layoutX="207.0" layoutY="30.0" prefHeight="25.0" prefWidth="202.0" />
+            <Label layoutX="161.0" layoutY="34.0" prefHeight="17.0" prefWidth="77.0" text="Search" />
+            <ComboBox id="searchTypeComboBox" fx:id="searchTypeComboBox" layoutX="438.0" layoutY="30.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <ListView id="searchListView" fx:id="searchListView" layoutY="109.0" prefHeight="469.0" prefWidth="876.0" />
+   </children>
+</AnchorPane>
