@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="470.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TrailSearchController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane prefHeight="109.0" prefWidth="876.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="2">
          <children>
-            <TextField id="searchField" fx:id="searchField" layoutX="215.0" layoutY="30.0" prefHeight="25.0" prefWidth="202.0" />
-            <Label layoutX="161.0" layoutY="34.0" prefHeight="17.0" prefWidth="77.0" text="Search" />
-            <ComboBox id="searchTypeComboBox" fx:id="searchTypeComboBox" layoutX="438.0" layoutY="30.0" prefWidth="150.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField id="searchField" fx:id="searchField" prefHeight="25.0" prefWidth="202.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <ComboBox id="searchTypeComboBox" fx:id="searchTypeComboBox" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearchClick" text="Search" />
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
-      <ListView id="searchListView" fx:id="searchListView" layoutY="109.0" prefHeight="469.0" prefWidth="876.0" />
+      </StackPane>
+      <TableView fx:id="trailTV" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
+        <columns>
+          <TableColumn fx:id="searchNameColumn" prefWidth="75.0" text="Trail Name" />
+          <TableColumn fx:id="searchAddressColumn" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="searchLengthColumn" prefWidth="75.0" text="Length" />
+            <TableColumn fx:id="searchElevationColumn" prefWidth="75.0" text="Elevation Gain" />
+            <TableColumn fx:id="searchDifficultyColumn" prefWidth="75.0" text="Difficulty" />
+            <TableColumn fx:id="searchTypeColumn" prefWidth="75.0" text="Type" />
+        </columns>
+      </TableView>
    </children>
-</AnchorPane>
+</GridPane>
