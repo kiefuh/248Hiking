@@ -46,25 +46,47 @@ public class TrailSearchController {
 	
 	public TrailSearchController() {
 		Platform.runLater(()->{
-			searchTypeComboBox.getItems().addAll("Name","Address","Length","Elevation Gain","Difficulty","Type");
+			searchTypeComboBox.getItems().addAll("Name","Length","Elevation Gain","Difficulty","Type");
 		});
 		
 	}
 	
 	@FXML
 	private void onSearchClick(ActionEvent event) {
+		String searchPhrase=searchField.getText();
+		List<Trail> searchReturn;
+		searchNameColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailName"));
+		searchAddressColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailHeadAdresses"));
+		searchLengthColumn.setCellValueFactory(new PropertyValueFactory<Trail,Integer>("length"));
+		searchElevationColumn.setCellValueFactory(new PropertyValueFactory<Trail,Integer>("elevationGain"));
+		searchDifficultyColumn.setCellValueFactory(new PropertyValueFactory<Trail,Difficulty>("difficulty"));
+		searchTypeColumn.setCellValueFactory(new PropertyValueFactory<Trail,TrailType>("trailType"));
 		if(searchTypeComboBox.getValue().equals("Name")) {
-			String searchPhrase=searchField.getText();
-			List<Trail> searchReturn = TrailStoreHolder.getTrailStore().searchByName(searchPhrase);
+			searchReturn=TrailStoreHolder.getTrailStore().searchByName(searchPhrase);
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
-			searchNameColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailName"));
-			searchAddressColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailHeadAdresses"));
-			searchLengthColumn.setCellValueFactory(new PropertyValueFactory<Trail,Integer>("length"));
-			searchElevationColumn.setCellValueFactory(new PropertyValueFactory<Trail,Integer>("elevationGain"));
-			searchDifficultyColumn.setCellValueFactory(new PropertyValueFactory<Trail,Difficulty>("difficulty"));
-			searchTypeColumn.setCellValueFactory(new PropertyValueFactory<Trail,TrailType>("trailType"));
 			trailTV.setItems(hikingHistory);
 		}
+		if(searchTypeComboBox.getValue().equals("Length")) {
+			searchReturn=TrailStoreHolder.getTrailStore().searchByElevation(Integer.parseInt(searchPhrase));
+			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
+			trailTV.setItems(hikingHistory);
+		}
+		if(searchTypeComboBox.getValue().equals("Elevation Gain")) {
+			searchReturn=TrailStoreHolder.getTrailStore().searchByElevation(Integer.parseInt(searchPhrase));
+			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
+			trailTV.setItems(hikingHistory);
+		}
+		if(searchTypeComboBox.getValue().equals("Difficulty")) {
+			searchReturn=TrailStoreHolder.getTrailStore().searchByDifficulty(Difficulty.EASY);
+			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
+			trailTV.setItems(hikingHistory);
+		}
+		if(searchTypeComboBox.getValue().equals("Type")) {
+			searchReturn=TrailStoreHolder.getTrailStore().searchByTrailType(TrailType.LOOP);
+			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
+			trailTV.setItems(hikingHistory);
+		}
+		
 	}
 	
 	
