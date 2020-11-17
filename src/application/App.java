@@ -36,7 +36,7 @@ public class App extends Application {
 		trails.addTrail(trail);
 		Factory.trailFactory(trails, 1000000);
 		TrailStoreHolder.setTrailStore(trails);
-		HikingHistory history= new HikingHistory("Test",20,20,null,1.0);
+		HikingHistory history= new HikingHistory("Test",20,20,null);
 		File proPicFile= new File("images/catProfile.png");
 		BufferedImage proPicImage=ImageIO.read(proPicFile);
 		File proPicFileQuinn= new File("images/quinnPic.jfif");

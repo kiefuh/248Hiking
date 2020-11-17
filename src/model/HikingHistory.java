@@ -13,13 +13,13 @@ public class HikingHistory {
 	LinkedList<BufferedImage> picturesTaken;
 	double averagePace;
 	public HikingHistory(String trailName, int distance, Integer duration,
-			LinkedList<BufferedImage> picturesTaken, double averagePace) {
+			LinkedList<BufferedImage> picturesTaken) {
 		super();
 		this.trailName = trailName;
 		this.distance = distance;
 		this.duration = duration;
 		this.picturesTaken = picturesTaken;
-		this.averagePace = averagePace;
+		this.averagePace = ((double)distance)/((double)duration);
 	}
 	public String getTrailName() {
 		return trailName;

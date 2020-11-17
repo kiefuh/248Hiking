@@ -60,6 +60,17 @@ public class UserController {
 	private MenuItem logoutItem;
 	@FXML
 	private MenuItem homeItem;
+	@FXML
+	private MenuItem addHikeItem;
+	@FXML
+	private MenuItem editHikeItem;
+	@FXML
+	private MenuItem removeHikeItem;
+	@FXML
+	private MenuItem changePicItem;
+	@FXML
+	private MenuItem editBioItem;
+	
 	
 	public UserController() {
 		Platform.runLater(()->{
@@ -112,6 +123,19 @@ public class UserController {
 		        	 Parent root=null;
 		        	try {
 						root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	Scene scene=userContainer.getScene();
+		        	scene.setRoot(root);
+		         }
+		      });
+			addHikeItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("HikeAdd.fxml"));
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

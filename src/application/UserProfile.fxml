@@ -57,9 +57,21 @@
               <MenuItem fx:id="searchItem" mnemonicParsing="false" text="Trails" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <Menu mnemonicParsing="false" text="Hikes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Add" />
+                    <MenuItem mnemonicParsing="false" text="Edit" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Profile">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Change Picture" />
+                        <MenuItem mnemonicParsing="false" text="Edit Bio" />
+                     </items>
+                  </Menu>
             </items>
           </Menu>
         </menus>

@@ -32,7 +32,7 @@ public class Factory {
 				Integer duration= integerGenerator();
 				LinkedList<BufferedImage> picList=null;
 				double averagePace= integerGenerator();
-				HikingHistory history= new HikingHistory(trailName,distance,duration,picList,averagePace);
+				HikingHistory history= new HikingHistory(trailName,distance,duration,picList);
 				historyStack.add(history);
 			}
 		
