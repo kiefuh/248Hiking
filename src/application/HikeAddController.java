@@ -32,8 +32,7 @@ public class HikeAddController {
 	private Button addPhotosButton;
 	@FXML
 	private Button finishedButton;
-	@FXML
-	private TableView<HikingHistory> tv;
+	
 	private LinkedList<BufferedImage> picturesList= new LinkedList<>();
 	
 	public HikeAddController() {
