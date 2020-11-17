@@ -43,9 +43,9 @@ public class UserSearchController {
 	private void onSearchClick(ActionEvent event) {
 		String searchPhrase=searchField.getText();
 		List<UserProfile> userReturn=null;
-		searchUsernameColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("trailName"));
-		searchPasswordColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("trailHeadAdresses"));
-		searchIsAdminColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,Boolean>("length"));
+		searchUsernameColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("userName"));
+		searchPasswordColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("password"));
+		searchIsAdminColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,Boolean>("isAdmin"));
 		userReturn=UserStoreHolder.getUserStore().searchUsersGui(searchPhrase);
 		ObservableList<UserProfile> userReturnObservable=FXCollections.observableList(userReturn);
 		userTV.setItems(userReturnObservable);
