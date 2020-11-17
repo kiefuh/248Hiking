@@ -22,7 +22,7 @@ import util.UserStoreHolder;
 
 public class UserSearchController {
 	@FXML
-	private TextField searchField;
+	private TextField searchUserField;
 	@FXML
 	private TableView<UserProfile> userTV;
 	@FXML
@@ -32,7 +32,7 @@ public class UserSearchController {
 	@FXML
 	private TableColumn<UserProfile,Boolean> searchIsAdminColumn;
 	@FXML
-	private Button searchButton;
+	private Button searchUserButton;
 	
 	
 	public UserSearchController() {
@@ -40,8 +40,8 @@ public class UserSearchController {
 	}
 	
 	@FXML
-	private void onSearchClick(ActionEvent event) {
-		String searchPhrase=searchField.getText();
+	private void onSearchUserClick(ActionEvent event) {
+		String searchPhrase=searchUserField.getText();
 		List<UserProfile> userReturn=null;
 		searchUsernameColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("userName"));
 		searchPasswordColumn.setCellValueFactory(new PropertyValueFactory<UserProfile,String>("password"));
