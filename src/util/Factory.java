@@ -30,7 +30,7 @@ public class Factory {
 				String trailName= stringGenerator();
 				Integer distance= integerGenerator();
 				Integer duration= integerGenerator();
-				LinkedList<BufferedImage> picList=null;
+				LinkedList<BufferedImage> picList=new LinkedList<>();
 				double averagePace= integerGenerator();
 				HikingHistory history= new HikingHistory(trailName,distance,duration,picList);
 				historyStack.add(history);

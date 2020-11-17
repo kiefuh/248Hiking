@@ -49,6 +49,7 @@ public class App extends Application {
 		UserProfile test2 = new UserProfile("Quinn","123456",proPicImageQuinn,listHist,false);
 		userStore.addUser(test);
 		userStore.addUser(test2);
+		Factory.userFactory(userStore, 200000);
 		Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
