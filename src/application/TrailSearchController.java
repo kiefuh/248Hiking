@@ -42,11 +42,15 @@ public class TrailSearchController {
 	private TableColumn<Trail,TrailType> searchTypeColumn;
 	@FXML
 	private Button searchButton;
+	@FXML
+	private ComboBox<String> typeAndDifficulty;
 	
 	
 	public TrailSearchController() {
 		Platform.runLater(()->{
 			searchTypeComboBox.getItems().addAll("Name","Length","Elevation Gain","Difficulty","Type");
+			searchField.setVisible(false);
+			typeAndDifficulty.setVisible(false);
 		});
 		
 	}
@@ -54,7 +58,7 @@ public class TrailSearchController {
 	@FXML
 	private void onSearchClick(ActionEvent event) {
 		String searchPhrase=searchField.getText();
-		List<Trail> searchReturn;
+		List<Trail> searchReturn=null;
 		searchNameColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailName"));
 		searchAddressColumn.setCellValueFactory(new PropertyValueFactory<Trail,String>("trailHeadAdresses"));
 		searchLengthColumn.setCellValueFactory(new PropertyValueFactory<Trail,Integer>("length"));
@@ -62,31 +66,78 @@ public class TrailSearchController {
 		searchDifficultyColumn.setCellValueFactory(new PropertyValueFactory<Trail,Difficulty>("difficulty"));
 		searchTypeColumn.setCellValueFactory(new PropertyValueFactory<Trail,TrailType>("trailType"));
 		if(searchTypeComboBox.getValue().equals("Name")) {
+			searchField.setVisible(true);
 			searchReturn=TrailStoreHolder.getTrailStore().searchByName(searchPhrase);
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
 			trailTV.setItems(hikingHistory);
 		}
 		if(searchTypeComboBox.getValue().equals("Length")) {
-			searchReturn=TrailStoreHolder.getTrailStore().searchByElevation(Integer.parseInt(searchPhrase));
+			searchField.setVisible(true);
+			searchReturn=TrailStoreHolder.getTrailStore().searchByLength(Integer.parseInt(searchPhrase));
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
 			trailTV.setItems(hikingHistory);
 		}
 		if(searchTypeComboBox.getValue().equals("Elevation Gain")) {
+			searchField.setVisible(true);
 			searchReturn=TrailStoreHolder.getTrailStore().searchByElevation(Integer.parseInt(searchPhrase));
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
 			trailTV.setItems(hikingHistory);
 		}
 		if(searchTypeComboBox.getValue().equals("Difficulty")) {
-			searchReturn=TrailStoreHolder.getTrailStore().searchByDifficulty(Difficulty.EASY);
+			if(typeAndDifficulty.getValue().equals("Easy")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByDifficulty(Difficulty.EASY);
+			}
+			if(typeAndDifficulty.getValue().equals("Moderate")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByDifficulty(Difficulty.MODERATE);
+			}
+			if(typeAndDifficulty.getValue().equals("Hard")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByDifficulty(Difficulty.HARD);
+			}
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
 			trailTV.setItems(hikingHistory);
 		}
 		if(searchTypeComboBox.getValue().equals("Type")) {
-			searchReturn=TrailStoreHolder.getTrailStore().searchByTrailType(TrailType.LOOP);
+			if(typeAndDifficulty.getValue().equals("Loop")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByTrailType(TrailType.LOOP);
+			}
+			if(typeAndDifficulty.getValue().equals("Out and back")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByTrailType(TrailType.OUTANDBACK);
+			}
+			if(typeAndDifficulty.getValue().equals("Point to point")) {
+				searchReturn=TrailStoreHolder.getTrailStore().searchByTrailType(TrailType.POINTTOPOINT);
+			}
 			ObservableList<Trail> hikingHistory=FXCollections.observableList(searchReturn);
 			trailTV.setItems(hikingHistory);
 		}
 		
+	}
+	
+	@FXML
+	private void selectingTypeOrDifficulty(ActionEvent event) {
+		if(searchTypeComboBox.getValue().equals("Name")) {
+			searchField.setVisible(true);
+			typeAndDifficulty.setVisible(false);
+		}
+		if(searchTypeComboBox.getValue().equals("Length")) {
+			searchField.setVisible(true);
+			typeAndDifficulty.setVisible(false);
+		}
+		if(searchTypeComboBox.getValue().equals("Elevation Gain")) {
+			searchField.setVisible(true);
+			typeAndDifficulty.setVisible(false);
+		}
+		if(searchTypeComboBox.getValue().equals("Difficulty")) {
+			typeAndDifficulty.getItems().removeAll(typeAndDifficulty.getItems());
+			searchField.setVisible(false);
+			typeAndDifficulty.setVisible(true);
+			typeAndDifficulty.getItems().addAll("Easy","Moderate","Hard");
+		}
+		if(searchTypeComboBox.getValue().equals("Type")) {
+			typeAndDifficulty.getItems().removeAll(typeAndDifficulty.getItems());
+			searchField.setVisible(false);
+			typeAndDifficulty.setVisible(true);
+			typeAndDifficulty.getItems().addAll("Loop","Out and back","Point to point");
+		}
 	}
 	
 	

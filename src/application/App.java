@@ -18,6 +18,7 @@ import model.TrailType;
 import model.UserProfile;
 import store.TreeMapStore;
 import store.UserStore;
+import util.Factory;
 import util.TrailStoreHolder;
 
 public class App extends Application {
@@ -33,6 +34,7 @@ public class App extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Trail trail= new Trail("trailName", "trailHeadAdresses", 20, 20, Difficulty.EASY,TrailType.LOOP);
 		trails.addTrail(trail);
+		Factory.trailFactory(trails, 1000000);
 		TrailStoreHolder.setTrailStore(trails);
 		HikingHistory history= new HikingHistory("Test",20,20,null,1.0);
 		File proPicFile= new File("images/catProfile.png");
