@@ -36,15 +36,15 @@ public class App extends Application {
 		trails.addTrail(trail);
 		Factory.trailFactory(trails, 1000000);
 		TrailStoreHolder.setTrailStore(trails);
-		HikingHistory history= new HikingHistory("Test",20,20,null);
+		HikingHistory history= new HikingHistory("Test",20,20,new LinkedList<BufferedImage>());
 		File proPicFile= new File("images/catProfile.png");
 		BufferedImage proPicImage=ImageIO.read(proPicFile);
 		File proPicFileQuinn= new File("images/quinnPic.jfif");
 		BufferedImage proPicImageQuinn=ImageIO.read(proPicFileQuinn);
 		LinkedList<HikingHistory> listHist= new LinkedList<>();
 		listHist.add(history);
-		UserProfile test = new UserProfile("Kiefuh","11787",proPicImage,listHist);
-		UserProfile test2 = new UserProfile("Quinn","123456",proPicImageQuinn,listHist);
+		UserProfile test = new UserProfile("Kiefuh","11787",proPicImage,listHist,true);
+		UserProfile test2 = new UserProfile("Quinn","123456",proPicImageQuinn,listHist,false);
 		userStore.addUser(test);
 		userStore.addUser(test2);
 		Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));

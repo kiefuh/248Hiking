@@ -36,7 +36,7 @@ public class Factory {
 				historyStack.add(history);
 			}
 		
-			UserProfile user= new UserProfile(userName,password,profilePic,historyStack);
+			UserProfile user= new UserProfile(userName,password,profilePic,historyStack,false);
 			userBag.addUser(user);
 		}
 		

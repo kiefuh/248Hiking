@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<BorderPane fx:id="adminContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController">
+   <top>
+      <MenuBar fx:id="adminMenu" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="adminHomeItem" mnemonicParsing="false" text="Home" />
+                  <MenuItem fx:id="adminLogoutItem" mnemonicParsing="false" text="Logout" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Search">
+            <items>
+              <MenuItem fx:id="adminSearchTrailItem" mnemonicParsing="false" text="Trails" />
+                  <MenuItem fx:id="adminSearchUsersItem" mnemonicParsing="false" text="Users" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tools">
+            <items>
+                  <Menu mnemonicParsing="false" text="Hikes">
+                    <items>
+                      <MenuItem fx:id="adminAddHikeItem" mnemonicParsing="false" text="Add" />
+                    <MenuItem fx:id="adminEditHikeItem" mnemonicParsing="false" text="Edit" />
+                        <MenuItem fx:id="adminRemoveHikeItem" mnemonicParsing="false" text="Delete" />
+                        <MenuItem fx:id="adminViewPhotosItem" mnemonicParsing="false" text="View Photos" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Profile">
+                     <items>
+                        <MenuItem fx:id="adminChangePicItem" mnemonicParsing="false" text="Change Picture" />
+                        <MenuItem fx:id="adminEditBioItem" mnemonicParsing="false" text="Edit Bio" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Trails">
+                     <items>
+                        <MenuItem fx:id="adminTrailEditItem" mnemonicParsing="false" text="Edit" />
+                        <MenuItem fx:id="adminTrailRemoveItem" mnemonicParsing="false" text="Remove" />
+                        <MenuItem fx:id="adminTrailAddItem" mnemonicParsing="false" text="Add" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Users">
+                     <items>
+                        <MenuItem fx:id="adminUserEditItem" mnemonicParsing="false" text="Edit" />
+                        <MenuItem fx:id="adminUserRemoveItem" mnemonicParsing="false" text="Remove" />
+                        <MenuItem fx:id="adminUserAddItem" mnemonicParsing="false" text="Add" />
+                     </items>
+                  </Menu>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <GridPane hgap="10.0" prefHeight="470.0" prefWidth="800.0" vgap="10.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="750.0" minWidth="10.0" prefWidth="750.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane id="profilePicture" fx:id="adminProfilePicture" prefHeight="359.0" prefWidth="235.0" />
+            <TableView id="tv" fx:id="aTV" prefHeight="160.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn id="trailNameColumn" fx:id="adminTrailNameColumn" prefWidth="158.0" text="Trail Name" />
+                <TableColumn id="dateColumn" fx:id="adminDateColumn" prefWidth="158.0" text="Date" />
+                  <TableColumn id="distanceColumn" fx:id="adminDistanceColumn" prefWidth="158.0" text="Distance" />
+                  <TableColumn id="durationColumn" fx:id="adminDurationColumn" prefWidth="158.0" text="Duration" />
+                  <TableColumn id="picturesColumn" fx:id="adminPicturesColumn" prefWidth="158.0" text="Pictures" />
+                  <TableColumn id="paceColumn" fx:id="adminPaceColumn" prefWidth="158.0" text="Pace" />
+              </columns>
+            </TableView>
+            <TextArea id="userInfo" fx:id="adminInfo" prefHeight="234.0" prefWidth="682.0" GridPane.columnIndex="1" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+   </center>
+</BorderPane>

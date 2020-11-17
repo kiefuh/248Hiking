@@ -28,20 +28,34 @@ public class LoginController {
 	
 	@FXML
 	private void loginButtonClick(ActionEvent event) {
-		Parent root=null;
-		try {
-			root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		String username= usernameField.getText();
 		String password= passwordField.getText();
 		UserProfile check=App.userStore.searchBag(username);
 		if(check!=null&&check.getPassword().equals(password)) {
-			Scene scene=usernameField.getScene();
-			scene.setRoot(root);
-			UserHolder.setUser(check);
+			if(check.getIsAdmin()!=true) {
+				Parent root=null;
+				try {
+					root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Scene scene=usernameField.getScene();
+				scene.setRoot(root);
+				UserHolder.setUser(check);
+			}else {
+				Parent root=null;
+				try {
+					root= FXMLLoader.load(getClass().getResource("AdminProfile.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Scene scene=usernameField.getScene();
+				scene.setRoot(root);
+				UserHolder.setUser(check);
+			}
 		}
 		else {
 			usernameField.setText("Unsuccesful login" );

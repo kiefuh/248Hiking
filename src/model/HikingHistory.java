@@ -11,7 +11,9 @@ public class HikingHistory {
 	Integer distance;
 	Integer duration;
 	LinkedList<BufferedImage> picturesTaken;
+	Integer numberOfPictures;
 	double averagePace;
+	
 	public HikingHistory(String trailName, int distance, Integer duration,
 			LinkedList<BufferedImage> picturesTaken) {
 		super();
@@ -20,6 +22,7 @@ public class HikingHistory {
 		this.duration = duration;
 		this.picturesTaken = picturesTaken;
 		this.averagePace = ((double)distance)/((double)duration);
+		this.numberOfPictures=this.picturesTaken.size();
 	}
 	public String getTrailName() {
 		return trailName;
@@ -54,12 +57,21 @@ public class HikingHistory {
 	public double getAveragePace() {
 		return averagePace;
 	}
-	public void setAveragePace(double averagePace) {
-		this.averagePace = averagePace;
+	public void setAveragePace() {
+		this.averagePace = ((double)distance)/((double)duration);
 	}
 	
 	public void addPicture(BufferedImage img) {
 		picturesTaken.add(img);
+		numberOfPictures++;
+	}
+	
+	public void setNumberOfPictures(int number) {
+		this.numberOfPictures=number;
+	}
+	
+	public Integer getNumberOfPictures() {
+		return this.numberOfPictures;
 	}
 	@Override
 	public String toString() {

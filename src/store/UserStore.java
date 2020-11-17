@@ -1,6 +1,8 @@
 package store;
 
+import java.util.List;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 import model.UserProfile;
 
@@ -22,6 +24,10 @@ public class UserStore {
 	
 	public UserProfile removeUser(String searchPhrase) {
 		return users.remove(searchPhrase);
+	}
+	
+	public List<UserProfile> searchUsersGui(String searchPhrase){
+		return users.values().stream().filter(x -> x.getUserName().contains(searchPhrase)).collect(Collectors.toList());
 	}
 	
 	

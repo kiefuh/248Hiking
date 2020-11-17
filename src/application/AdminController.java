@@ -3,9 +3,9 @@ package application;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,20 +13,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.HikingHistory;
@@ -35,50 +31,64 @@ import util.ProgramAlerts;
 import util.SelectionHolder;
 import util.UserHolder;
 
-public class UserController {
+public class AdminController {
 	@FXML
-	private Pane profilePicture;
+	private Pane adminProfilePicture;
 	@FXML
-	private TextArea userInfo;
+	private TextArea adminInfo;
 	@FXML
-	private TableView<HikingHistory> tv;
+	private TableView<HikingHistory> aTV;
 	@FXML
-	private TableColumn<HikingHistory,String> trailNameColumn;
+	private TableColumn<HikingHistory,String> adminTrailNameColumn;
 	@FXML
-	private TableColumn<HikingHistory,LocalDateTime> dateColumn;
+	private TableColumn<HikingHistory,LocalDateTime> adminDateColumn;
 	@FXML
-	private TableColumn<HikingHistory,Integer> distanceColumn;
+	private TableColumn<HikingHistory,Integer> adminDistanceColumn;
 	@FXML
-	private TableColumn<HikingHistory,Integer> durationColumn;
+	private TableColumn<HikingHistory,Integer> adminDurationColumn;
 	@FXML
-	private TableColumn<HikingHistory,Integer> picturesColumn;
+	private TableColumn<HikingHistory,Integer> adminPicturesColumn;
 	@FXML
-	private TableColumn<HikingHistory,Double> paceColumn;
+	private TableColumn<HikingHistory,Double> adminPaceColumn;
 	@FXML
-	private MenuBar userMenu;
+	private MenuBar adminMenu;
 	@FXML
-	private MenuItem searchItem;
+	private MenuItem adminSearchUsersItem;
 	@FXML
-	private BorderPane userContainer;
+	private MenuItem adminSearchTrailItem;
 	@FXML
-	private MenuItem logoutItem;
+	private BorderPane adminContainer;
 	@FXML
-	private MenuItem homeItem;
+	private MenuItem adminLogoutItem;
 	@FXML
-	private MenuItem addHikeItem;
+	private MenuItem adminHomeItem;
 	@FXML
-	private MenuItem editHikeItem;
+	private MenuItem adminAddHikeItem;
 	@FXML
-	private MenuItem removeHikeItem;
+	private MenuItem adminEditHikeItem;
 	@FXML
-	private MenuItem changePicItem;
+	private MenuItem adminRemoveHikeItem;
 	@FXML
-	private MenuItem editBioItem;
+	private MenuItem adminChangePicItem;
 	@FXML
-	private MenuItem viewPhotosItem;
+	private MenuItem adminEditBioItem;
+	@FXML
+	private MenuItem adminViewPhotosItem;
+	@FXML
+	private MenuItem adminTrailEditItem;
+	@FXML
+	private MenuItem adminTrailRemoveItem;
+	@FXML
+	private MenuItem adminTrailAddItem;
+	@FXML
+	private MenuItem adminUserEditItem;
+	@FXML
+	private MenuItem adminUserAddItem;
+	@FXML
+	private MenuItem adminUserRemoveItem;
 	
 	
-	public UserController() {
+	public AdminController() {
 		Platform.runLater(()->{
 			UserProfile currentUser=UserHolder.getUser();
 			try {
@@ -86,20 +96,20 @@ public class UserController {
 				ImageView viewProfilePic=new ImageView(profilePic);
 				viewProfilePic.setFitHeight(200);
 				viewProfilePic.setFitWidth(200);
-				profilePicture.getChildren().add(viewProfilePic);
+				adminProfilePicture.getChildren().add(viewProfilePic);
 				ObservableList<HikingHistory> hikingHistory=FXCollections.observableList(currentUser.getHikingHistory());
-				trailNameColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,String>("trailName"));
-				dateColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,LocalDateTime>("dateTime"));
-				distanceColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("distance"));
-				durationColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("duration"));
-				picturesColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("numberOfPictures"));
-				paceColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Double>("averagePace"));
-				tv.setItems(hikingHistory);
+				adminTrailNameColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,String>("trailName"));
+				adminDateColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,LocalDateTime>("dateTime"));
+				adminDistanceColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("distance"));
+				adminDurationColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("duration"));
+				adminPicturesColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Integer>("numberOfPictures"));
+				adminPaceColumn.setCellValueFactory(new PropertyValueFactory<HikingHistory,Double>("averagePace"));
+				aTV.setItems(hikingHistory);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				System.out.println("There is a null value");
 			}
-			searchItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminSearchTrailItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
 		        	try {
@@ -108,10 +118,10 @@ public class UserController {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	userContainer.setCenter(root);
+		        	adminContainer.setCenter(root);
 		         }
 		      });
-			logoutItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
 		        	try {
@@ -120,24 +130,24 @@ public class UserController {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	Scene scene=userContainer.getScene();
+		        	Scene scene=adminContainer.getScene();
 		        	scene.setRoot(root);
 		         }
 		      });
-			homeItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminHomeItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
 		        	try {
-						root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+						root= FXMLLoader.load(getClass().getResource("AdminProfile.fxml"));
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	Scene scene=userContainer.getScene();
+		        	Scene scene=adminContainer.getScene();
 		        	scene.setRoot(root);
 		         }
 		      });
-			addHikeItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminAddHikeItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
 		        	try {
@@ -146,19 +156,19 @@ public class UserController {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	userContainer.setCenter(root);
+		        	adminContainer.setCenter(root);
 		        	
 		         }
 		      });
-			removeHikeItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminRemoveHikeItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
-		        	tv.getItems().remove(tv.getSelectionModel().getSelectedItem());
+		        	aTV.getItems().remove(aTV.getSelectionModel().getSelectedItem());
 		         }
 		      });
-			editHikeItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminEditHikeItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
-		        	SelectionHolder.setSelected(tv.getSelectionModel().getSelectedItem());
-		        	SelectionHolder.setSelected(tv.getSelectionModel().getSelectedItem());
+		        	SelectionHolder.setSelected(aTV.getSelectionModel().getSelectedItem());
+		        	SelectionHolder.setSelected(aTV.getSelectionModel().getSelectedItem());
 		        	if(SelectionHolder.getSelected()==null) {
 		        		ProgramAlerts.newException("Please select a hike from the table on your homepage, or create one");
 		        	}else {
@@ -171,13 +181,13 @@ public class UserController {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-			        	userContainer.setCenter(root);
+			        	adminContainer.setCenter(root);
 		         }
 		         }
 		      });
-			viewPhotosItem.setOnAction(new EventHandler<ActionEvent>() {
+			adminViewPhotosItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
-		        	SelectionHolder.setSelected(tv.getSelectionModel().getSelectedItem());
+		        	SelectionHolder.setSelected(aTV.getSelectionModel().getSelectedItem());
 		        	if(SelectionHolder.getSelected()==null) {
 		        		ProgramAlerts.newException("Please select a hike from the table on your homepage, or create one");
 		        		
@@ -194,7 +204,7 @@ public class UserController {
 						}
 	                dialog.initModality(Modality.WINDOW_MODAL);
 	                dialog.setTitle(SelectionHolder.getSelected().getTrailName()+" "+SelectionHolder.getSelected().getDateTime()+" pictures");
-	                dialog.initOwner((Stage)userContainer.getScene().getWindow());
+	                dialog.initOwner((Stage)adminContainer.getScene().getWindow());
 	                Scene dialogScene = new Scene(root, 800, 470);
 	                dialog.setScene(dialogScene);
 	                dialog.show();
@@ -203,7 +213,4 @@ public class UserController {
 		      });
 		});
 	}
-	
-	
-	
 }

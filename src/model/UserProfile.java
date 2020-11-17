@@ -9,13 +9,15 @@ public class UserProfile {
 	private String password;
 	private BufferedImage profilePicture;
 	private LinkedList<HikingHistory> hikingHistory;
+	private boolean isAdmin;
 	public UserProfile(String userName, String password, BufferedImage profilePicture,
-			LinkedList<HikingHistory> hikingHistory) {
+			LinkedList<HikingHistory> hikingHistory,boolean isAdmin) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.profilePicture = profilePicture;
 		this.hikingHistory = hikingHistory;
+		this.isAdmin=isAdmin;
 	}
 	public String getUserName() {
 		return userName;
@@ -44,6 +46,14 @@ public class UserProfile {
 	
 	public void addTrailHistory(HikingHistory trail) {
 		hikingHistory.add(trail);
+	}
+	
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin=isAdmin;
+	}
+	
+	public boolean getIsAdmin() {
+		return this.isAdmin;
 	}
 	
 	@Override

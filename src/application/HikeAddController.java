@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.HikingHistory;
+import util.ProgramAlerts;
 import util.UserHolder;
 import javafx.stage.FileChooser.ExtensionFilter;
 
@@ -64,6 +65,7 @@ public class HikeAddController {
 		trailNameAdd.clear();
 		distanceAdd.clear();
 		durationAdd.clear();
+		ProgramAlerts.newInformation("Hike Successfully Added!");
 	}
 	
 	

@@ -3,6 +3,7 @@ package application;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
 
@@ -16,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import model.HikingHistory;
 import model.UserProfile;
 import javafx.stage.Stage;
 
@@ -46,7 +48,7 @@ public class RegistrationController {
 			userRegistrationField.setText("This is already a user");
 		}
 		else {
-		UserProfile up= new UserProfile(userName,password,profilePic,null);
+		UserProfile up= new UserProfile(userName,password,profilePic,new LinkedList<HikingHistory>(),false);
 		App.userStore.addUser(up);
 		Parent root=null;
 		try {
@@ -79,4 +81,6 @@ public class RegistrationController {
 		profilePicNameLabel.setText(file.getName());
 		
 	}
+	
+	
 }

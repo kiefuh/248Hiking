@@ -61,15 +61,16 @@
             <items>
                   <Menu mnemonicParsing="false" text="Hikes">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Add" />
-                    <MenuItem mnemonicParsing="false" text="Edit" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                      <MenuItem fx:id="addHikeItem" mnemonicParsing="false" text="Add" />
+                    <MenuItem fx:id="editHikeItem" mnemonicParsing="false" text="Edit" />
+                        <MenuItem fx:id="removeHikeItem" mnemonicParsing="false" text="Delete" />
+                        <MenuItem fx:id="viewPhotosItem" mnemonicParsing="false" text="View Photos" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Profile">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Change Picture" />
-                        <MenuItem mnemonicParsing="false" text="Edit Bio" />
+                        <MenuItem fx:id="changePicItem" mnemonicParsing="false" text="Change Picture" />
+                        <MenuItem fx:id="editBioItem" mnemonicParsing="false" text="Edit Bio" />
                      </items>
                   </Menu>
             </items>
