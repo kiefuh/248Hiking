@@ -2,7 +2,6 @@ package model;
 
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
-import java.util.Stack;
 
 public class UserProfile {
 	private String userName;

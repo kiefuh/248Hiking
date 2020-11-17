@@ -3,34 +3,18 @@ package application;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.LinkedList;
-
 import javax.imageio.ImageIO;
-
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.HikingHistory;
-import model.UserProfile;
 import util.ProgramAlerts;
 import util.SelectionHolder;
-import util.UserHolder;
 
 public class EditController {
 	@FXML
@@ -44,7 +28,6 @@ public class EditController {
 	@FXML
 	private Button finishedEditButton;
 	
-	private LinkedList<BufferedImage> picturesList;
 	
 	public EditController() {
 		Platform.runLater(()->{

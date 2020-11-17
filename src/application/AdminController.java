@@ -211,6 +211,18 @@ public class AdminController {
 		         }
 		         }
 		      });
+			adminSearchUsersItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("UserSearch.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	adminContainer.setCenter(root);
+		         }
+		      });
 		});
 	}
 }

@@ -1,7 +1,5 @@
 package application;
 
-import java.time.LocalDateTime;
-import java.util.LinkedList;
 import java.util.List;
 
 import javafx.application.Platform;
@@ -16,7 +14,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Difficulty;
-import model.HikingHistory;
 import model.Trail;
 import model.TrailType;
 import util.TrailStoreHolder;

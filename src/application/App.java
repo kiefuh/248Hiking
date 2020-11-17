@@ -20,6 +20,7 @@ import store.TreeMapStore;
 import store.UserStore;
 import util.Factory;
 import util.TrailStoreHolder;
+import util.UserStoreHolder;
 
 public class App extends Application {
 
@@ -32,6 +33,7 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		UserStoreHolder.setUserStore(userStore);
 		Trail trail= new Trail("trailName", "trailHeadAdresses", 20, 20, Difficulty.EASY,TrailType.LOOP);
 		trails.addTrail(trail);
 		Factory.trailFactory(trails, 1000000);
