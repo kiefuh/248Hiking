@@ -81,14 +81,15 @@ public class UserSearchController {
 			adminSearchTrailItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
-		        	try {
-						root= FXMLLoader.load(getClass().getResource("TrailSearch.fxml"));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		        	adminContainer.setCenter(root);
-		         }
+			        	try {
+							root= FXMLLoader.load(getClass().getResource("TrailSearchAdmin.fxml"));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			        	Scene scene=adminContainer.getScene();
+			        	scene.setRoot(root);
+			         }
 		      });
 			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {

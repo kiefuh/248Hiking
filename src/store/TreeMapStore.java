@@ -16,6 +16,7 @@ public class TreeMapStore {
 	TreeMap<Integer, LinkedList<Trail>> trailElevationMap;
 	HashMap<Difficulty, LinkedList<Trail>> trailDifficultyMap;
 	HashMap<TrailType, LinkedList<Trail>> trailTypeMap;
+	TreeMap<Integer,Trail> trailIdMap;
 
 	public TreeMapStore() {
 		trailNameList = new LinkedList<Trail>();
@@ -23,6 +24,7 @@ public class TreeMapStore {
 		trailElevationMap = new TreeMap<>();
 		trailDifficultyMap = new HashMap<>(20);
 		trailTypeMap = new HashMap<>(20);
+		trailIdMap= new TreeMap<>();
 	}
 
 	public void addTrail(Trail trail) {
@@ -57,6 +59,7 @@ public class TreeMapStore {
 			trailList.add(trail);
 			trailTypeMap.put(trail.getTrailType(), trailList);
 		}
+		trailIdMap.put(trail.getId(), trail);
 
 	}
 
@@ -184,6 +187,19 @@ public class TreeMapStore {
 		else {
 			return removalList;
 		}
+	}
+	
+	public Trail deleteById(Integer searchPhrase){
+		Trail t=trailIdMap.remove(searchPhrase);
+		List<Trail> nameRemove = searchByName(t.getTrailName());
+		nameRemove.removeIf(x->x.getId().equals(t.getId()));
+		LinkedList<Trail> lengthRemove = searchByLength(t.getLength());
+		lengthRemove.removeIf(x->x.getId().equals(t.getId()));
+		LinkedList<Trail> elevationRemove = searchByElevation(t.getElevationGain());
+		elevationRemove.removeIf(x->x.getId().equals(t.getId()));
+		LinkedList<Trail> trailDifficulty= searchByDifficulty(t.getDifficulty());
+		trailDifficulty.removeIf(x->x.getId().equals(t.getId()));
+		return t;
 	}
 	
 	

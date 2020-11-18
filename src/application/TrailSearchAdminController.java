@@ -24,7 +24,10 @@ import javafx.scene.layout.BorderPane;
 import model.Difficulty;
 import model.Trail;
 import model.TrailType;
+import model.UserProfile;
+import util.ProgramAlerts;
 import util.TrailStoreHolder;
+import util.UserStoreHolder;
 
 public class TrailSearchAdminController {
 	@FXML
@@ -91,14 +94,15 @@ public class TrailSearchAdminController {
 			adminSearchTrailItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	 Parent root=null;
-		        	try {
-						root= FXMLLoader.load(getClass().getResource("TrailSearch.fxml"));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		        	adminContainer.setCenter(root);
-		         }
+			        	try {
+							root= FXMLLoader.load(getClass().getResource("TrailSearchAdmin.fxml"));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			        	Scene scene=adminContainer.getScene();
+			        	scene.setRoot(root);
+			         }
 		      });
 			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
@@ -124,6 +128,13 @@ public class TrailSearchAdminController {
 					}
 		        	Scene scene=adminContainer.getScene();
 		        	scene.setRoot(root);
+		         }
+		      });
+			adminTrailRemoveItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+						Trail deletion=trailTV.getSelectionModel().getSelectedItem();
+						trailTV.getItems().remove(trailTV.getSelectionModel().getSelectedItem());
+						TrailStoreHolder.getTrailStore().deleteByName(deletion.getTrailName());
 		         }
 		      });
 		});

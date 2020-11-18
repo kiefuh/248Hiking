@@ -8,6 +8,8 @@ public class Trail implements Comparable<Trail> {
 	Integer elevationGain;
 	Difficulty difficulty;
 	TrailType trailType;
+	private static Integer  iDCounter=0;
+	private Integer iD;
 	
 	
 	
@@ -23,6 +25,7 @@ public class Trail implements Comparable<Trail> {
 		this.elevationGain = elevationGain;
 		this.difficulty = difficulty;
 		this.trailType = trailType;
+		iD=iDCounter++;
 	}
 	public String getTrailName() {
 		return trailName;
@@ -59,6 +62,9 @@ public class Trail implements Comparable<Trail> {
 	}
 	public void setTrailType(TrailType trailType) {
 		this.trailType = trailType;
+	}
+	public Integer getId() {
+		return this.iD;
 	}
 	@Override
 	public String toString() {
