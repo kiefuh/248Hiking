@@ -8,9 +8,11 @@ import java.util.LinkedList;
 import javax.imageio.ImageIO;
 
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Difficulty;
 import model.HikingHistory;
@@ -38,23 +40,11 @@ public class App extends Application {
 		//User Kiefuh as username and 11787 as password for an admin profile
 		userStore=FileWriterReader.loadUsers("storeSaves/userStore.dat");
 		UserStoreHolder.setUserStore(userStore);
-		//Trail trail= new Trail("trailName", "trailHeadAdresses", 20, 20, Difficulty.EASY,TrailType.LOOP);
 		trails= FileWriterReader.loadTreeMapStore("storeSaves/trailStore.dat");
-		//Factory.trailFactory(trails, 50000);
-		//trails.addTrail(trail);
 		TrailStoreHolder.setTrailStore(trails);
-		//HikingHistory history= new HikingHistory("Test",20,20,new LinkedList<String>());
-		//LinkedList<HikingHistory> listHist= new LinkedList<>();
-		//listHist.add(history);
-		//LinkedList<HikingHistory> listHist2= new LinkedList<>();
-		//listHist2.add(history);
-		//UserProfile test = new UserProfile("Kiefuh","11787","images/catProfile.png",listHist,true,"My name is Kiefer");
-		//UserProfile test2 = new UserProfile("Quinn","123456","images/quinnPic.jfif",listHist2,false,"My name is Quinn");
-		//userStore.addUser(test);
-		//userStore.addUser(test2);
-		//Factory.userFactory(userStore, 10000);
-		//FileWriterReader.saveUsers(userStore, "storeSaves/userStore.dat");
-		//FileWriterReader.saveTrails(trails, "storeSaves/trailStore.dat");
+		BufferedImage icon= ImageIO.read(new File("images/treeIcon.png"));
+		Image iconImage= SwingFXUtils.toFXImage(icon,null);
+		primaryStage.getIcons().add(iconImage);
 		primaryStage.setOnCloseRequest(e->{
 			try {
 				FileWriterReader.saveUsers(UserStoreHolder.getUserStore(), "storeSaves/userStore.dat");
