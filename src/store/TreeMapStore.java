@@ -189,16 +189,18 @@ public class TreeMapStore {
 		}
 	}
 	
-	public Trail deleteById(Integer searchPhrase){
-		Trail t=trailIdMap.remove(searchPhrase);
-		List<Trail> nameRemove = searchByName(t.getTrailName());
-		nameRemove.removeIf(x->x.getId().equals(t.getId()));
-		LinkedList<Trail> lengthRemove = searchByLength(t.getLength());
-		lengthRemove.removeIf(x->x.getId().equals(t.getId()));
-		LinkedList<Trail> elevationRemove = searchByElevation(t.getElevationGain());
-		elevationRemove.removeIf(x->x.getId().equals(t.getId()));
-		LinkedList<Trail> trailDifficulty= searchByDifficulty(t.getDifficulty());
-		trailDifficulty.removeIf(x->x.getId().equals(t.getId()));
+	public Trail deleteByID(Trail searchPhrase){
+		Trail t=trailIdMap.remove(searchPhrase.getId());
+		List<Trail>removalList=trailNameList.stream().filter(x -> x.getId().equals(searchPhrase.getId())).collect(Collectors.toList());
+		trailNameList.removeAll(removalList);
+		LinkedList<Trail> lengthRemove = searchByLength(searchPhrase.getLength());
+		lengthRemove.removeIf(x->x.getId().equals(searchPhrase.getId()));
+		LinkedList<Trail> elevationRemove = searchByElevation(searchPhrase.getElevationGain());
+		elevationRemove.removeIf(x->x.getId().equals(searchPhrase.getId()));
+		LinkedList<Trail> trailDifficulty= searchByDifficulty(searchPhrase.getDifficulty());
+		trailDifficulty.removeIf(x->x.getId().equals(searchPhrase.getId()));
+		LinkedList<Trail> trailTypeRemove= searchByTrailType(searchPhrase.getTrailType());
+		trailTypeRemove.removeIf(x->x.getId().equals(searchPhrase.getId()));
 		return t;
 	}
 	

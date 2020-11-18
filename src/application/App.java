@@ -36,7 +36,7 @@ public class App extends Application {
 		UserStoreHolder.setUserStore(userStore);
 		Trail trail= new Trail("trailName", "trailHeadAdresses", 20, 20, Difficulty.EASY,TrailType.LOOP);
 		trails.addTrail(trail);
-		Factory.trailFactory(trails, 1000000);
+		//Factory.trailFactory(trails, 1000000);
 		TrailStoreHolder.setTrailStore(trails);
 		HikingHistory history= new HikingHistory("Test",20,20,new LinkedList<BufferedImage>());
 		File proPicFile= new File("images/catProfile.png");

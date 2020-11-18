@@ -21,11 +21,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Difficulty;
 import model.Trail;
 import model.TrailType;
 import model.UserProfile;
 import util.ProgramAlerts;
+import util.SelectionHolder;
 import util.TrailStoreHolder;
 import util.UserStoreHolder;
 
@@ -134,7 +137,25 @@ public class TrailSearchAdminController {
 		         public void handle(ActionEvent event) {
 						Trail deletion=trailTV.getSelectionModel().getSelectedItem();
 						trailTV.getItems().remove(trailTV.getSelectionModel().getSelectedItem());
-						TrailStoreHolder.getTrailStore().deleteByName(deletion.getTrailName());
+						TrailStoreHolder.getTrailStore().deleteByID(deletion);
+		         }
+		      });
+			adminTrailAddItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 final Stage dialog = new Stage();
+			        	Parent root=null;
+				        	try {
+								root= FXMLLoader.load(getClass().getResource("TrailAdd.fxml"));
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+		                dialog.initModality(Modality.WINDOW_MODAL);
+		                dialog.setTitle("Add Trail");
+		                dialog.initOwner((Stage)adminContainer.getScene().getWindow());
+		                Scene dialogScene = new Scene(root, 800, 470);
+		                dialog.setScene(dialogScene);
+		                dialog.show();
 		         }
 		      });
 		});
