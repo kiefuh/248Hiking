@@ -158,6 +158,26 @@ public class TrailSearchAdminController {
 		                dialog.show();
 		         }
 		      });
+			adminTrailEditItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	
+					SelectionHolder.setSelectedTrail(trailTV.getSelectionModel().getSelectedItem());
+					if(SelectionHolder.getSelectedTrail()==null) {
+						ProgramAlerts.newException("Please select a trail below");
+					}else {
+					Parent root=null;
+						try {
+							root= FXMLLoader.load(getClass().getResource("TrailEdit.fxml"));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+							Scene scene=adminContainer.getScene();
+							scene.setRoot(root);
+					
+			         }
+		         }
+		      });
 		});
 		
 	}
