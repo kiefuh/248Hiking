@@ -27,8 +27,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.FileChooser.ExtensionFilter;
 import model.HikingHistory;
 import model.UserProfile;
 import util.FileWriterReader;
@@ -222,6 +224,38 @@ public class UserController {
 						e.printStackTrace();
 					}
 		        	userContainer.setCenter(root);
+		         }
+		      });
+			changePicItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Scene scene=userInfo.getScene();
+			        	Stage stage=(Stage)scene.getWindow();
+			        	FileChooser fileChooser = new FileChooser();
+			     		fileChooser.setTitle("Choose Profile Picture");
+			     		fileChooser.getExtensionFilters().addAll(
+			     		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif","*.jpeg","*.jfif")
+			     		);
+			     		Stage mainStage=stage;    
+			     		File file= fileChooser.showOpenDialog(mainStage);
+			        	Parent root=null;
+			        	BufferedImage profilePic;
+			        	String profilePicLocation = null;
+			        	try {
+			    			profilePic=ImageIO.read(file);
+			    			profilePicLocation="images/"+file.getName()+".png";
+			    			ImageIO.write(profilePic, "png", new File(profilePicLocation));
+			    		} catch (IOException e) {
+			    			// TODO Auto-generated catch block
+			    			e.printStackTrace();
+			    		}
+			        	UserHolder.getUser().setProfilePicture(profilePicLocation);
+			        	try {
+							root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			        	scene.setRoot(root);
 		         }
 		      });
 		});
