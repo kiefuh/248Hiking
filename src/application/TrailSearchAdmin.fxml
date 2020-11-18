@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TrailSearchController">
+<BorderPane fx:id="adminContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TrailSearchAdminController">
    <center>
       <GridPane prefHeight="470.0" prefWidth="800.0">
          <columnConstraints>
@@ -66,21 +66,29 @@
       </GridPane>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="adminMenu" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="adminHomeItem" mnemonicParsing="false" text="Home" />
+                  <MenuItem fx:id="adminLogoutItem" mnemonicParsing="false" text="Logout" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Search">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="adminSearchTrailItem" mnemonicParsing="false" text="Trails" />
+                  <MenuItem fx:id="adminSearchUsersItem" mnemonicParsing="false" text="Users" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <Menu mnemonicParsing="false" text="Trails">
+                    <items>
+                      <MenuItem fx:id="adminTrailAddItem" mnemonicParsing="false" text="Add" />
+                    <MenuItem fx:id="adminTrailEditItem" mnemonicParsing="false" text="Edit" />
+                        <MenuItem fx:id="adminTrailRemoveItem" mnemonicParsing="false" text="Remove" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
         </menus>

@@ -1,12 +1,17 @@
 package application;
 
+import java.io.IOException;
 import java.util.List;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuBar;
@@ -56,6 +61,13 @@ public class TrailSearchAdminController {
 	private MenuItem adminLogoutItem;
 	@FXML
 	private MenuItem adminHomeItem;
+	@FXML
+	private MenuItem adminTrailEditItem;
+	@FXML
+	private MenuItem adminTrailRemoveItem;
+	@FXML
+	private MenuItem adminTrailAddItem;
+	
 	
 	
 	public TrailSearchAdminController() {
@@ -63,6 +75,57 @@ public class TrailSearchAdminController {
 			searchTypeComboBox.getItems().addAll("Name","Length","Elevation Gain","Difficulty","Type");
 			searchField.setVisible(false);
 			typeAndDifficulty.setVisible(false);
+			adminSearchUsersItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("UserSearch.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	Scene scene=adminContainer.getScene();
+		        	scene.setRoot(root);
+		         }
+		      });
+			adminSearchTrailItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("TrailSearch.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	adminContainer.setCenter(root);
+		         }
+		      });
+			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("Login.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	Scene scene=adminContainer.getScene();
+		        	scene.setRoot(root);
+		         }
+		      });
+			adminHomeItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("AdminProfile.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	Scene scene=adminContainer.getScene();
+		        	scene.setRoot(root);
+		         }
+		      });
 		});
 		
 	}

@@ -45,7 +45,6 @@ public class TrailSearchController {
 	@FXML
 	private ComboBox<String> typeAndDifficulty;
 	
-	
 	public TrailSearchController() {
 		Platform.runLater(()->{
 			searchTypeComboBox.getItems().addAll("Name","Length","Elevation Gain","Difficulty","Type");

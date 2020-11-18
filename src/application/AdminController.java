@@ -74,12 +74,7 @@ public class AdminController {
 	private MenuItem adminEditBioItem;
 	@FXML
 	private MenuItem adminViewPhotosItem;
-	@FXML
-	private MenuItem adminTrailEditItem;
-	@FXML
-	private MenuItem adminTrailRemoveItem;
-	@FXML
-	private MenuItem adminTrailAddItem;
+
 	
 	
 	public AdminController() {

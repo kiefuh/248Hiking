@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <BorderPane fx:id="adminContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController">
    <top>
       <MenuBar fx:id="adminMenu" BorderPane.alignment="CENTER">
@@ -44,20 +43,6 @@
                      <items>
                         <MenuItem fx:id="adminChangePicItem" mnemonicParsing="false" text="Change Picture" />
                         <MenuItem fx:id="adminEditBioItem" mnemonicParsing="false" text="Edit Bio" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Trails">
-                     <items>
-                        <MenuItem fx:id="adminTrailEditItem" mnemonicParsing="false" text="Edit" />
-                        <MenuItem fx:id="adminTrailRemoveItem" mnemonicParsing="false" text="Remove" />
-                        <MenuItem fx:id="adminTrailAddItem" mnemonicParsing="false" text="Add" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Users">
-                     <items>
-                        <MenuItem fx:id="adminUserEditItem" mnemonicParsing="false" text="Edit" />
-                        <MenuItem fx:id="adminUserRemoveItem" mnemonicParsing="false" text="Remove" />
-                        <MenuItem fx:id="adminUserAddItem" mnemonicParsing="false" text="Add" />
                      </items>
                   </Menu>
             </items>
