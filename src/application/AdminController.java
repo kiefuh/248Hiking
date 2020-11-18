@@ -34,6 +34,7 @@ import model.UserProfile;
 import util.FileWriterReader;
 import util.ProgramAlerts;
 import util.SelectionHolder;
+import util.TrailStoreHolder;
 import util.UserHolder;
 import util.UserStoreHolder;
 
@@ -126,6 +127,12 @@ public class AdminController {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
+		        	 try {
+						FileWriterReader.saveTrails(TrailStoreHolder.getTrailStore(), "storeSaves/trailStore");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 		        	 Parent root=null;
 		        	try {
 						root= FXMLLoader.load(getClass().getResource("Login.fxml"));
