@@ -80,12 +80,6 @@ public class AdminController {
 	private MenuItem adminTrailRemoveItem;
 	@FXML
 	private MenuItem adminTrailAddItem;
-	@FXML
-	private MenuItem adminUserEditItem;
-	@FXML
-	private MenuItem adminUserAddItem;
-	@FXML
-	private MenuItem adminUserRemoveItem;
 	
 	
 	public AdminController() {
@@ -168,7 +162,6 @@ public class AdminController {
 			adminEditHikeItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
 		        	SelectionHolder.setSelected(aTV.getSelectionModel().getSelectedItem());
-		        	SelectionHolder.setSelected(aTV.getSelectionModel().getSelectedItem());
 		        	if(SelectionHolder.getSelected()==null) {
 		        		ProgramAlerts.newException("Please select a hike from the table on your homepage, or create one");
 		        	}else {
@@ -220,7 +213,8 @@ public class AdminController {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	adminContainer.setCenter(root);
+		        	Scene scene=adminContainer.getScene();
+		        	scene.setRoot(root);
 		         }
 		      });
 		});

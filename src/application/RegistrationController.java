@@ -19,6 +19,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.HikingHistory;
 import model.UserProfile;
+import util.ProgramAlerts;
 import javafx.stage.Stage;
 
 public class RegistrationController {
@@ -45,9 +46,17 @@ public class RegistrationController {
 		String password=passwordRegistrationField.getText();
 		UserProfile check=App.userStore.searchBag(userName);
 		if(check!=null) {
-			userRegistrationField.setText("This is already a user");
+			ProgramAlerts.newException("This is already a user");
 		}
 		else {
+		if(profilePic==null) {
+			try {
+				profilePic=ImageIO.read(new File("images/defaultUserIcon.jpg"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		UserProfile up= new UserProfile(userName,password,profilePic,new LinkedList<HikingHistory>(),false);
 		App.userStore.addUser(up);
 		Parent root=null;
@@ -59,6 +68,27 @@ public class RegistrationController {
 		}
 		Scene scene= userCreateButton.getScene();
 		scene.setRoot(root);
+		}
+	}
+	
+	@FXML
+	private void createUserButtonClickAdmin(ActionEvent event) {
+		String userName=userRegistrationField.getText();
+		String password=passwordRegistrationField.getText();
+		UserProfile check=App.userStore.searchBag(userName);
+		try {
+			profilePic=ImageIO.read(new File("images/defaultUserIcon.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(check!=null) {
+			ProgramAlerts.newException("This is already a user");
+		}
+		else {
+		UserProfile up= new UserProfile(userName,password,profilePic,new LinkedList<HikingHistory>(),false);
+		App.userStore.addUser(up);
+		ProgramAlerts.newInformation("User successfully created");
 		}
 	}
 	
