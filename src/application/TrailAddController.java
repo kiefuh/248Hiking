@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import model.Difficulty;
 import model.Trail;
 import model.TrailType;
+import util.ProgramAlerts;
 import util.TrailStoreHolder;
 
 public class TrailAddController {
@@ -36,15 +37,23 @@ public class TrailAddController {
 	
 	@FXML
 	private void onfinishedButtonClick(ActionEvent event) {
-		String trailName=trailNameAdd.getText();
-		String address= addressAdd.getText();
-		Integer distance= Integer.parseInt(distanceAdd.getText());
-		
-		Integer elevationGain= Integer.parseInt(elevationGainAdd.getText());
-		Difficulty difficulty= difficultyCombo.getValue();
-		TrailType trailType=trailTypeCombo.getValue();
-		Trail trail= new Trail(trailName,address,distance,elevationGain,difficulty,trailType);
-		TrailStoreHolder.getTrailStore().addTrail(trail);
+		try {
+			String trailName=trailNameAdd.getText();
+			String address= addressAdd.getText();
+			Integer distance= Integer.parseInt(distanceAdd.getText());
+			Integer elevationGain= Integer.parseInt(elevationGainAdd.getText());
+			Difficulty difficulty= difficultyCombo.getValue();
+			TrailType trailType=trailTypeCombo.getValue();
+			Trail trail= new Trail(trailName,address,distance,elevationGain,difficulty,trailType);
+			TrailStoreHolder.getTrailStore().addTrail(trail);
+			ProgramAlerts.newInformation("Trail has been added");
+			trailNameAdd.clear();
+			addressAdd.clear();
+			distanceAdd.clear();
+			elevationGainAdd.clear();
+		} catch (NumberFormatException e) {
+			ProgramAlerts.newException("Please make sure to select a value from combo boxes, and that there are numbers in the distance and elevation gain fields" );
+		}
 		
 	}
 }
