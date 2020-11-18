@@ -36,7 +36,7 @@ public class Factory {
 				historyStack.add(history);
 			}
 		
-			UserProfile user= new UserProfile(userName,password,"images/defaultUserIcon.jpg",historyStack,false);
+			UserProfile user= new UserProfile(userName,password,"images/defaultUserIcon.jpg",historyStack,false,"Im a test user");
 			userBag.addUser(user);
 		}
 		

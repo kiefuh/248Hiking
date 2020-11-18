@@ -87,6 +87,8 @@ public class AdminController {
 	public AdminController() {
 		Platform.runLater(()->{
 			UserProfile currentUser=UserHolder.getUser();
+			adminInfo.setText(currentUser.getUserBio());
+			adminInfo.setEditable(false);
 			try {
 				BufferedImage pic= ImageIO.read(new File(currentUser.getProfilePicture()));
 				Image profilePic=SwingFXUtils.toFXImage(pic,null);
@@ -231,6 +233,19 @@ public class AdminController {
 					}
 		        	Scene scene=adminContainer.getScene();
 		        	scene.setRoot(root);
+		         }
+		      });
+			adminEditBioItem.setOnAction(new EventHandler<ActionEvent>() {
+		         public void handle(ActionEvent event) {
+		        	 Parent root=null;
+		        	try {
+						root= FXMLLoader.load(getClass().getResource("EditBio.fxml"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	adminContainer.setCenter(root);
+		        	
 		         }
 		      });
 		});

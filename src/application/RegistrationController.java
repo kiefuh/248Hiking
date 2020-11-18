@@ -56,7 +56,7 @@ public class RegistrationController {
 			profilePicLocation="images/defaultUserIcon.jpg";
 			
 		}
-		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false);
+		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false,"Im a new user");
 		App.userStore.addUser(up);
 		Parent root=null;
 		try {
@@ -80,7 +80,7 @@ public class RegistrationController {
 			ProgramAlerts.newException("This is already a user");
 		}
 		else {
-		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false);
+		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false,"I'm a new user");
 		App.userStore.addUser(up);
 		ProgramAlerts.newInformation("User successfully created");
 		}

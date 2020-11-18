@@ -15,7 +15,7 @@ public class TestStores {
 
 	@Test
 	public void testUserSearch() {
-		UserProfile test= new UserProfile("John","Doe",null,null,false);
+		UserProfile test= new UserProfile("John","Doe",null,null,false,null);
 		UserStore store= new UserStore();
 		store.addUser(test);
 		assertEquals(test,store.searchBag(test.getUserName()));
@@ -23,7 +23,7 @@ public class TestStores {
 	
 	@Test
 	public void testUserDeletion() {
-		UserProfile test= new UserProfile("John","Doe",null,null,false);
+		UserProfile test= new UserProfile("John","Doe",null,null,false,null);
 		UserStore store= new UserStore();
 		store.addUser(test);
 		assertEquals(test,store.removeUser(test.getUserName()));

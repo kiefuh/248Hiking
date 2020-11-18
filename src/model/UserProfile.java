@@ -14,14 +14,16 @@ public class UserProfile implements Serializable {
 	private String profilePicture;
 	private LinkedList<HikingHistory> hikingHistory;
 	private boolean isAdmin;
+	private String userBio;
 	public UserProfile(String userName, String password, String profilePicture,
-			LinkedList<HikingHistory> hikingHistory,boolean isAdmin) {
+			LinkedList<HikingHistory> hikingHistory,boolean isAdmin,String userBio) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.profilePicture = profilePicture;
 		this.hikingHistory = hikingHistory;
 		this.isAdmin=isAdmin;
+		this.userBio=userBio;
 	}
 	public String getUserName() {
 		return userName;
@@ -60,6 +62,12 @@ public class UserProfile implements Serializable {
 		return this.isAdmin;
 	}
 	
+	public String getUserBio() {
+		return userBio;
+	}
+	public void setUserBio(String userBio) {
+		this.userBio = userBio;
+	}
 	@Override
 	public String toString() {
 		return "UserProfile [userName=" + userName + ", password=" + password + ", profilePicture=" + profilePicture
