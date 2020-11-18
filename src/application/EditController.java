@@ -52,11 +52,12 @@ public class EditController {
 			File file= fileChooser.showOpenDialog(mainStage);
 			try {
 				hikePhoto=ImageIO.read(file);
+				ImageIO.write(hikePhoto, "png", new File("images/"+file.getName()+".png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			SelectionHolder.getSelected().addPicture(hikePhoto);
+			SelectionHolder.getSelected().addPicture("images/"+file.getName()+".png");
 		} catch (Exception e) {
 			System.out.println("User did not choose any photos");
 		}

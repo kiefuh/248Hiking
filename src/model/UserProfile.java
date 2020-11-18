@@ -1,15 +1,20 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class UserProfile {
+public class UserProfile implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7067454894578845108L;
 	private String userName;
 	private String password;
-	private BufferedImage profilePicture;
+	private String profilePicture;
 	private LinkedList<HikingHistory> hikingHistory;
 	private boolean isAdmin;
-	public UserProfile(String userName, String password, BufferedImage profilePicture,
+	public UserProfile(String userName, String password, String profilePicture,
 			LinkedList<HikingHistory> hikingHistory,boolean isAdmin) {
 		super();
 		this.userName = userName;
@@ -30,10 +35,10 @@ public class UserProfile {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public BufferedImage getProfilePicture() {
+	public String getProfilePicture() {
 		return profilePicture;
 	}
-	public void setProfilePicture(BufferedImage profilePicture) {
+	public void setProfilePicture(String profilePicture) {
 		this.profilePicture = profilePicture;
 	}
 	public LinkedList<HikingHistory> getHikingHistory() {

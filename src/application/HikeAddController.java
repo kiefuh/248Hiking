@@ -30,7 +30,7 @@ public class HikeAddController {
 	@FXML
 	private Button finishedButton;
 	
-	private LinkedList<BufferedImage> picturesList= new LinkedList<>();
+	private LinkedList<String> picturesList= new LinkedList<>();
 	
 	public HikeAddController() {
 		
@@ -48,11 +48,12 @@ public class HikeAddController {
 			File file= fileChooser.showOpenDialog(mainStage);
 			try {
 				hikePhoto=ImageIO.read(file);
+				ImageIO.write(hikePhoto, "png", new File("images/"+file.getName()+".png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			picturesList.add(hikePhoto);
+			picturesList.add("images/"+file.getName()+".png");
 		} catch (Exception e) {
 			System.out.println("User did not add any photos");
 		}

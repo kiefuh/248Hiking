@@ -2,20 +2,25 @@ package model;
 
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
-public class HikingHistory {
+public class HikingHistory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -787446088339909333L;
 	String trailName;
 	LocalDateTime dateTime=LocalDateTime.now();
 	Integer distance;
 	Integer duration;
-	LinkedList<BufferedImage> picturesTaken;
+	LinkedList<String> picturesTaken;
 	Integer numberOfPictures;
 	double averagePace;
 	
 	public HikingHistory(String trailName, int distance, Integer duration,
-			LinkedList<BufferedImage> picturesTaken) {
+			LinkedList<String> picturesTaken) {
 		super();
 		this.trailName = trailName;
 		this.distance = distance;
@@ -48,10 +53,10 @@ public class HikingHistory {
 	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
-	public LinkedList<BufferedImage> getPicturesTaken() {
+	public LinkedList<String> getPicturesTaken() {
 		return picturesTaken;
 	}
-	public void setPicturesTaken(LinkedList<BufferedImage> picturesTaken) {
+	public void setPicturesTaken(LinkedList<String> picturesTaken) {
 		this.picturesTaken = picturesTaken;
 	}
 	public double getAveragePace() {
@@ -61,7 +66,7 @@ public class HikingHistory {
 		this.averagePace = ((double)distance)/((double)duration);
 	}
 	
-	public void addPicture(BufferedImage img) {
+	public void addPicture(String img) {
 		picturesTaken.add(img);
 		numberOfPictures++;
 	}

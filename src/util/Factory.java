@@ -30,13 +30,13 @@ public class Factory {
 				String trailName= stringGenerator();
 				Integer distance= integerGenerator();
 				Integer duration= integerGenerator();
-				LinkedList<BufferedImage> picList=new LinkedList<>();
+				LinkedList<String> picList=new LinkedList<>();
 				double averagePace= integerGenerator();
 				HikingHistory history= new HikingHistory(trailName,distance,duration,picList);
 				historyStack.add(history);
 			}
 		
-			UserProfile user= new UserProfile(userName,password,profilePic,historyStack,false);
+			UserProfile user= new UserProfile(userName,password,"images/defaultUserIcon.jpg",historyStack,false);
 			userBag.addUser(user);
 		}
 		

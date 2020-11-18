@@ -1,7 +1,12 @@
 package model;
 
+import java.io.Serializable;
 
-public class Trail implements Comparable<Trail> {
+public class Trail implements Comparable<Trail>,Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7891441421017545749L;
 	String trailName;
 	String trailHeadAdresses;
 	Integer length;

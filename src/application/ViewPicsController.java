@@ -1,6 +1,10 @@
 package application;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -14,22 +18,29 @@ import util.SelectionHolder;
 
 public class ViewPicsController {
 	@FXML
-	private ListView<BufferedImage> imageListView;
+	private ListView<String> imageListView;
 	
 	public ViewPicsController() {
 		Platform.runLater(()->{
 			imageListView.setItems(FXCollections.observableList(SelectionHolder.getSelected().getPicturesTaken()));
-			imageListView.setCellFactory(imageListView-> new ListCell<BufferedImage>() {
+			imageListView.setCellFactory(imageListView-> new ListCell<String>() {
 				ImageView imageView= new ImageView();
 				@Override
-	            public void updateItem(BufferedImage bufferedImage, boolean empty) {
+	            public void updateItem(String bufferedImage, boolean empty) {
 					super.updateItem(bufferedImage, empty);
 					if(empty) {
 						setText(null);
 						setGraphic(null);
 					}
 					else {
-						Image image= SwingFXUtils.toFXImage(bufferedImage,null);
+						BufferedImage bi=null;
+						try {
+							bi = ImageIO.read(new File(bufferedImage));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						Image image= SwingFXUtils.toFXImage(bi,null);
 						imageView.setImage(image);
 						imageView.setFitWidth(imageListView.getWidth());
 						imageView.setFitHeight(250);

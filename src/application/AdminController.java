@@ -1,7 +1,11 @@
 package application;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+
+import javax.imageio.ImageIO;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -27,9 +31,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.HikingHistory;
 import model.UserProfile;
+import util.FileWriterReader;
 import util.ProgramAlerts;
 import util.SelectionHolder;
 import util.UserHolder;
+import util.UserStoreHolder;
 
 public class AdminController {
 	@FXML
@@ -81,7 +87,8 @@ public class AdminController {
 		Platform.runLater(()->{
 			UserProfile currentUser=UserHolder.getUser();
 			try {
-				Image profilePic=SwingFXUtils.toFXImage(currentUser.getProfilePicture(),null);
+				BufferedImage pic= ImageIO.read(new File(currentUser.getProfilePicture()));
+				Image profilePic=SwingFXUtils.toFXImage(pic,null);
 				ImageView viewProfilePic=new ImageView(profilePic);
 				viewProfilePic.setFitHeight(200);
 				viewProfilePic.setFitWidth(200);
@@ -113,6 +120,12 @@ public class AdminController {
 		      });
 			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
+		        	 try {
+							FileWriterReader.saveUsers(UserStoreHolder.getUserStore(), "storeSaves/userStore.dat");
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 		        	 Parent root=null;
 		        	try {
 						root= FXMLLoader.load(getClass().getResource("Login.fxml"));

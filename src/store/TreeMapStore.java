@@ -1,5 +1,6 @@
 package store;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,11 @@ import model.Difficulty;
 import model.Trail;
 import model.TrailType;
 
-public class TreeMapStore {
+public class TreeMapStore implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3650119099714494093L;
 	LinkedList<Trail> trailNameList;
 	TreeMap<Integer, LinkedList<Trail>> trailLengthMap;
 	TreeMap<Integer, LinkedList<Trail>> trailElevationMap;

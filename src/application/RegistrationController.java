@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +36,7 @@ public class RegistrationController {
 	@FXML
 	private Label profilePicNameLabel;
 	private BufferedImage profilePic;
+	private String profilePicLocation;
 	
 	public RegistrationController() {
 		
@@ -49,15 +51,12 @@ public class RegistrationController {
 			ProgramAlerts.newException("This is already a user");
 		}
 		else {
-		if(profilePic==null) {
-			try {
-				profilePic=ImageIO.read(new File("images/defaultUserIcon.jpg"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		if(profilePicLocation==null) {
+			
+			profilePicLocation="images/defaultUserIcon.jpg";
+			
 		}
-		UserProfile up= new UserProfile(userName,password,profilePic,new LinkedList<HikingHistory>(),false);
+		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false);
 		App.userStore.addUser(up);
 		Parent root=null;
 		try {
@@ -76,17 +75,12 @@ public class RegistrationController {
 		String userName=userRegistrationField.getText();
 		String password=passwordRegistrationField.getText();
 		UserProfile check=App.userStore.searchBag(userName);
-		try {
-			profilePic=ImageIO.read(new File("images/defaultUserIcon.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		profilePicLocation="images/defaultUserIcon.jpg";
 		if(check!=null) {
 			ProgramAlerts.newException("This is already a user");
 		}
 		else {
-		UserProfile up= new UserProfile(userName,password,profilePic,new LinkedList<HikingHistory>(),false);
+		UserProfile up= new UserProfile(userName,password,profilePicLocation,new LinkedList<HikingHistory>(),false);
 		App.userStore.addUser(up);
 		ProgramAlerts.newInformation("User successfully created");
 		}
@@ -103,6 +97,8 @@ public class RegistrationController {
 		File file= fileChooser.showOpenDialog(mainStage);
 		try {
 			profilePic=ImageIO.read(file);
+			profilePicLocation="images/"+userRegistrationField.getText()+".png";
+			ImageIO.write(profilePic, "png", new File("images/"+userRegistrationField.getText()+".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
