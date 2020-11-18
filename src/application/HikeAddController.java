@@ -37,31 +37,39 @@ public class HikeAddController {
 	}
 	@FXML
 	private void onAddPhotosButtonClick(ActionEvent event) {
-		BufferedImage hikePhoto = null;
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Choose Profile Picture");
-		fileChooser.getExtensionFilters().addAll(
-		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
-		);
-		Stage mainStage=(Stage)addPhotosButton.getScene().getWindow();         
-		File file= fileChooser.showOpenDialog(mainStage);
 		try {
-			hikePhoto=ImageIO.read(file);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			BufferedImage hikePhoto = null;
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Choose Profile Picture");
+			fileChooser.getExtensionFilters().addAll(
+			         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+			);
+			Stage mainStage=(Stage)addPhotosButton.getScene().getWindow();         
+			File file= fileChooser.showOpenDialog(mainStage);
+			try {
+				hikePhoto=ImageIO.read(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			picturesList.add(hikePhoto);
+		} catch (Exception e) {
+			System.out.println("User did not add any photos");
 		}
-		picturesList.add(hikePhoto);
 	}
 	
 	@FXML
 	private void onFinishedButtonClick(ActionEvent event) {
-		HikingHistory hikingHistory= new HikingHistory(trailNameAdd.getText(),Integer.parseInt(distanceAdd.getText()),Integer.parseInt(durationAdd.getText()),picturesList);
-		UserHolder.getUser().addTrailHistory(hikingHistory);
-		trailNameAdd.clear();
-		distanceAdd.clear();
-		durationAdd.clear();
-		ProgramAlerts.newInformation("Hike Successfully Added!");
+		try {
+			HikingHistory hikingHistory= new HikingHistory(trailNameAdd.getText(),Integer.parseInt(distanceAdd.getText()),Integer.parseInt(durationAdd.getText()),picturesList);
+			UserHolder.getUser().addTrailHistory(hikingHistory);
+			trailNameAdd.clear();
+			distanceAdd.clear();
+			durationAdd.clear();
+			ProgramAlerts.newInformation("Hike Successfully Added!");
+		} catch (NumberFormatException e) {
+			ProgramAlerts.newException("Please only type numbers into duration and distance fields");
+		}
 	}
 	
 	

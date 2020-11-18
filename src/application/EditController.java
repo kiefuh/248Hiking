@@ -41,30 +41,38 @@ public class EditController {
 	
 	@FXML
 	private void onEditPhotosButtonClick(ActionEvent event) {
-		BufferedImage hikePhoto = null;
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Choose Profile Picture");
-		fileChooser.getExtensionFilters().addAll(
-		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
-		);
-		Stage mainStage=(Stage)editPhotosButton.getScene().getWindow();         
-		File file= fileChooser.showOpenDialog(mainStage);
 		try {
-			hikePhoto=ImageIO.read(file);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			BufferedImage hikePhoto = null;
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Choose Profile Picture");
+			fileChooser.getExtensionFilters().addAll(
+			         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+			);
+			Stage mainStage=(Stage)editPhotosButton.getScene().getWindow();         
+			File file= fileChooser.showOpenDialog(mainStage);
+			try {
+				hikePhoto=ImageIO.read(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			SelectionHolder.getSelected().addPicture(hikePhoto);
+		} catch (Exception e) {
+			System.out.println("User did not choose any photos");
 		}
-		SelectionHolder.getSelected().addPicture(hikePhoto);
 	}
 	
 	@FXML
 	private void onFinishedEditButtonClick(ActionEvent event) {
-		SelectionHolder.getSelected().setTrailName(trailNameEdit.getText());
-		SelectionHolder.getSelected().setDistance(Integer.parseInt(distanceEdit.getText()));
-		SelectionHolder.getSelected().setDuration(Integer.parseInt(durationEdit.getText()));
-		SelectionHolder.getSelected().setAveragePace();
-		ProgramAlerts.newInformation("Your Edit Has Been Saved");
+		try {
+			SelectionHolder.getSelected().setTrailName(trailNameEdit.getText());
+			SelectionHolder.getSelected().setDistance(Integer.parseInt(distanceEdit.getText()));
+			SelectionHolder.getSelected().setDuration(Integer.parseInt(durationEdit.getText()));
+			SelectionHolder.getSelected().setAveragePace();
+			ProgramAlerts.newInformation("Your Edit Has Been Saved");
+		} catch (NumberFormatException e) {
+			ProgramAlerts.newException("Please only type numbers into duration and distance fields");
+		}
 	}
 	
 	
