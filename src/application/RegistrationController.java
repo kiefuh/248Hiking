@@ -91,7 +91,7 @@ public class RegistrationController {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Choose Profile Picture");
 		fileChooser.getExtensionFilters().addAll(
-		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif","jpeg")
 		);
 		Stage mainStage=(Stage)userCreateButton.getScene().getWindow();         
 		File file= fileChooser.showOpenDialog(mainStage);

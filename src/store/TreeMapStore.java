@@ -13,7 +13,8 @@ import model.TrailType;
 
 public class TreeMapStore implements Serializable {
 	/**
-	 * 
+	 * @author Kiefer
+	 * This class contains all the trails stored in the program. It allows for searching and deletion of trails.
 	 */
 	private static final long serialVersionUID = 3650119099714494093L;
 	LinkedList<Trail> trailNameList;
@@ -31,7 +32,12 @@ public class TreeMapStore implements Serializable {
 		trailTypeMap = new HashMap<>(20);
 		trailIdMap= new TreeMap<>();
 	}
-
+	
+	/**
+	 * This method adds a trail to the trail store. It will add two trails that are the same.
+	 * It adds it too each data structure which all contain a LinkedList at a key.
+	 * @param Trail trail
+	 */
 	public void addTrail(Trail trail) {
 		trailNameList.add(trail);
 		if (trailLengthMap.containsKey(trail.getLength())) {
@@ -67,11 +73,20 @@ public class TreeMapStore implements Serializable {
 		trailIdMap.put(trail.getId(), trail);
 
 	}
-
+	/**
+	 * This method searches through the LinkedList that contains all the names of trails to return any trail 
+	 * with the searchPhrase in it. For example if you searched tree, both a trail named tree woods and tree place would be returned.
+	 * @param searchPhrase
+	 * @return List<Trail>
+	 */
 	public List<Trail> searchByName(String searchPhrase) {
 		return trailNameList.stream().filter(x -> x.getTrailName().contains(searchPhrase)).collect(Collectors.toList());
 	}
-
+	/**
+	 * This method returns the LinkedList stored at the searchPhrase one inputs.
+	 * @param searchPhrase
+	 * @return
+	 */
 	public LinkedList<Trail> searchByLength(Integer searchPhrase) {
 		return trailLengthMap.get(searchPhrase);
 	}
@@ -193,7 +208,12 @@ public class TreeMapStore implements Serializable {
 			return removalList;
 		}
 	}
-	
+	/**
+	 * This method is used in the gui to delete a selected trail.
+	 * It uses all of the above removal methods to remove from all the TreeMaps, HashMaps, and LinkedList.
+	 * @param searchPhrase is a trail 
+	 * @return Trail trail
+	 */
 	public Trail deleteByID(Trail searchPhrase){
 		Trail t=trailIdMap.remove(searchPhrase.getId());
 		List<Trail>removalList=trailNameList.stream().filter(x -> x.getId().equals(searchPhrase.getId())).collect(Collectors.toList());

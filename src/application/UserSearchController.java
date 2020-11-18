@@ -25,6 +25,7 @@ import model.Difficulty;
 import model.Trail;
 import model.TrailType;
 import model.UserProfile;
+import util.FileWriterReader;
 import util.ProgramAlerts;
 import util.SelectionHolder;
 import util.TrailStoreHolder;
@@ -93,6 +94,18 @@ public class UserSearchController {
 		      });
 			adminLogoutItem.setOnAction(new EventHandler<ActionEvent>() {
 		         public void handle(ActionEvent event) {
+		        	 try {
+							FileWriterReader.saveUsers(UserStoreHolder.getUserStore(), "storeSaves/userStore.dat");
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+		        	 try {
+						FileWriterReader.saveTrails(TrailStoreHolder.getTrailStore(), "storeSaves/trailStore.dat");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 		        	 Parent root=null;
 		        	try {
 						root= FXMLLoader.load(getClass().getResource("Login.fxml"));

@@ -31,6 +31,7 @@ public class LoginController {
 		UserProfile check=App.userStore.searchBag(username);
 		if(check!=null&&check.getPassword().equals(password)) {
 			if(check.getIsAdmin()!=true) {
+				UserHolder.setUser(check);
 				Parent root=null;
 				try {
 					root= FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
@@ -40,7 +41,7 @@ public class LoginController {
 				}
 				Scene scene=usernameField.getScene();
 				scene.setRoot(root);
-				UserHolder.setUser(check);
+				
 			}else {
 				Parent root=null;
 				try {

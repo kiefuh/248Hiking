@@ -11,7 +11,7 @@ import store.UserStore;
 
 public class FileWriterReader {
 	public static void saveUsers(UserStore obj,String fileName)throws IOException{
-	    FileOutputStream fos = new FileOutputStream(fileName);
+	    FileOutputStream fos = new FileOutputStream(fileName,false);
 	    ObjectOutputStream oos = new ObjectOutputStream(fos);
 	    oos.writeObject(obj);
 	    oos.close();
@@ -32,7 +32,7 @@ public class FileWriterReader {
 	}
 	
 	public static void saveTrails(TreeMapStore obj,String fileName)throws IOException{
-	    FileOutputStream fos = new FileOutputStream(fileName);
+	    FileOutputStream fos = new FileOutputStream(fileName,false);
 	    ObjectOutputStream oos = new ObjectOutputStream(fos);
 	    oos.writeObject(obj);
 	    oos.close();

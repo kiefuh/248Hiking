@@ -128,7 +128,7 @@ public class AdminController {
 							e1.printStackTrace();
 						}
 		        	 try {
-						FileWriterReader.saveTrails(TrailStoreHolder.getTrailStore(), "storeSaves/trailStore");
+						FileWriterReader.saveTrails(TrailStoreHolder.getTrailStore(), "storeSaves/trailStore.dat");
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
